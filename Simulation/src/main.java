@@ -9,7 +9,7 @@ public class main {
 		// TODO Auto-generated method stub
 		FileReader fReader = null;
 		
-		String path = "C:/Users/student/git/RA_2018_19/Simulation/testfiles/TPicSim1.LST";
+		String path = "testfiles/TPicSim1.LST";
 		
 		fReader = new FileReader(path);
 
