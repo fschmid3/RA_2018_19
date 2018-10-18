@@ -15,7 +15,6 @@ public class Parser {
 
 		fReader = new FileReader(path);
 
-		char [] acBuffer = new char [9];
 		BufferedReader bReader = new BufferedReader(fReader);
 
 		String [] fileContent = new String[256];
@@ -27,6 +26,7 @@ public class Parser {
 			fileContent[indexContent] = lineBuffer;
 			lineBuffer = bReader.readLine();
 		}
+		bReader.close();
 		return fileContent;
 	}
 
@@ -37,16 +37,19 @@ public class Parser {
 		int [] aiBuffer = new int [50];
 		String codeBuffer = null;
 		int indexContent;
-		int i= 0;
+		
 		for(indexContent = 0; (!fileContent[indexContent].contains("start")) && (!fileContent[indexContent].contains("loop")); indexContent++) {}
 		indexContent++;
-		for(;!fileContent[indexContent].contains("ende"); indexContent++) {
+		for(int i= 0;!fileContent[indexContent].contains("ende"); indexContent++,i++) {
 			
-			codeBuffer= fileContent[indexContent].substring(5, 10);
+			codeBuffer = fileContent[indexContent].substring(5, 9);
+			//System.out.println(codeBuffer);
 			if(!codeBuffer.contains(" ")) {
 				aiBuffer[i] = Integer.parseInt(codeBuffer,16);
+				System.out.println(aiBuffer[i]+" "+i);
 			}
 		}
+		
 		return aiBuffer;
 	}
 }
