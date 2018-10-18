@@ -1,5 +1,6 @@
 package Steuerung;
 
+
 public class Befehlsdecoder {
 	private int maskedCode;
 	private int code;
@@ -81,7 +82,7 @@ public class Befehlsdecoder {
 		case 0x0000:
 			//CALL
 			myOperations.goTo(code);
-			//Rücksprungadresse auf Stack retten fehlt noch!
+			myOperations.saveAdressOnStack();
 			break;
 		case 0x0800:
 			//GOTO

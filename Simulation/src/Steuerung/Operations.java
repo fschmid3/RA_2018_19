@@ -1,10 +1,12 @@
 package Steuerung;
 
 import Daten.Register;
+import Daten.Stack;
 
 public class Operations {
 
-	Register register = new Register();
+	private Register register = new Register();
+	private Stack myStack = new Stack();
 
 	//saves value in w register
 	public void movLW(int code) {
@@ -69,7 +71,7 @@ public class Operations {
 	public void retLW(int code) {
 		int value = code & 0x03FF;
 		register.setW(value);
-		//Programmcounter mit letzter Stackadresse laden fehlt!
+		register.setPc(myStack.pop());		//loads pc with saved adress on top of stack
 		System.out.println(register.getW());
 	}
 
@@ -79,6 +81,10 @@ public class Operations {
 		int adress = code & 0x07FF;
 		register.setPc(adress);
 		System.out.println("GOTO: "+adress);
+	}
+	
+	public void saveAdressOnStack() {
+		myStack.push(register.getPc());
 	}
 
 
