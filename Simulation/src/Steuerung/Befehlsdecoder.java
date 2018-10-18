@@ -5,13 +5,21 @@ public class Befehlsdecoder {
 	private int code;
 	private Operations myOperations = new Operations();
 	
+	//decides of which sort the statement is -> how many bits encode statement
+	//and calls relevant methods
 	public void decode(int pCode) {
 		code = pCode;
 		maskedCode = code & 0x3000;
 		switch(maskedCode) {
 		
-		case 0x3000: maskFourBit();
+		case 0x3000: maskFourBit();		//0x3000 -> four bit statement
 			break;
+			
+		case 0x2000: maskOneBit();		//0x2000 -> one bit statement
+		break;
+		
+		case 0x0000: 
+		break;
 			
 		default:
 			break; 
@@ -19,7 +27,8 @@ public class Befehlsdecoder {
 		
 	}
 	
-	
+
+	//decides, which fourBit coded statement and calls relevant methods
 	private void maskFourBit() {
 		int maskedCode = code & 0x0C00;
 		switch(maskedCode) {
@@ -52,6 +61,7 @@ public class Befehlsdecoder {
 			break;
 		case 0x0400:
 			//RETLW
+			myOperations.retLW(code); 	//fehlt noch PC mit höchster Stackadresse laden
 			break;
 		case 0x0000:
 			//MOVLW
@@ -59,6 +69,26 @@ public class Befehlsdecoder {
 			break;
 			default:
 				System.out.println("invalid code in maskFourBit");
+				break;
+		}
+		
+	}
+	
+	// decides, whether code is for CALL or GOTO statement and calls relevant methods
+	private void maskOneBit() {
+		int maskedCode = code & 0x0800;
+		switch(maskedCode) {
+		case 0x0000:
+			//CALL
+			myOperations.goTo(code);
+			//Rücksprungadresse auf Stack retten fehlt noch!
+			break;
+		case 0x0800:
+			//GOTO
+			myOperations.goTo(code);
+			break;
+			default:
+				System.out.println("invalid code in maskOneBit");
 				break;
 		}
 		

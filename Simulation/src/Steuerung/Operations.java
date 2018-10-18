@@ -63,9 +63,25 @@ public class Operations {
 		setDC(value, result);
 		System.out.println(register.getW());
 	}
-	
-	
-	
+
+
+	//sets w on value and puts latest stackadress in PC
+	public void retLW(int code) {
+		int value = code & 0x03FF;
+		register.setW(value);
+		//Programmcounter mit letzter Stackadresse laden fehlt!
+		System.out.println(register.getW());
+	}
+
+
+	//sets PC on new value
+	public void goTo(int code) {
+		int adress = code & 0x07FF;
+		register.setPc(adress);
+		System.out.println("GOTO: "+adress);
+	}
+
+
 	private void setZ(int result) {
 		if (result == 0) {
 			register.setZ(1);
@@ -81,8 +97,8 @@ public class Operations {
 			register.setC(0);
 		}
 	}
-	
-	
+
+
 	private void setDC(int value, int result) {
 		int maskedValue = value & 0x0010;
 		int maskedResult = result & 0x0010;
@@ -92,5 +108,5 @@ public class Operations {
 			register.setC(0);
 		}
 	}
-	
+
 }
