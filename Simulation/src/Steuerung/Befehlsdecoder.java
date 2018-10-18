@@ -13,7 +13,7 @@ public class Befehlsdecoder {
 			break;
 			
 		default:
-			break;
+			break; 
 		}
 		
 	}

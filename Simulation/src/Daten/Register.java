@@ -1,7 +1,7 @@
 package Daten;
 
 public class Register {
-	private int fsr = 0;
+	private int fsr = 0; 
 	private int w = 0;
 	private int status = 0;
 	private int instruction = 0;
