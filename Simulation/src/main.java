@@ -8,6 +8,7 @@ public class main {
 		// TODO Auto-generated method stub
 		Parser myParser = new Parser();
 		String[] myStr = myParser.readFile("testfiles/TPicSim1.LST");
+		
 		for(int i = 0; (i<myStr.length)&&myStr[i]!=null; i++) {
 			//System.out.println(myStr[i]);
 		}
