@@ -7,6 +7,36 @@ public class Register {
 	private int instruction = 0;
 	private int pc = 0;
 	private int gernalPurpReg = 0;
+	private int c = 0; 
+	private int f = 0; 
+	
+	
+	public int getF() {
+		return f;
+	}
+	public void setF(int f) {
+		this.f = f;
+	}
+	public int getC() {
+		return c;
+	}
+	public void setC(int c) {
+		this.c = c;
+	}
+	public int getDc() {
+		return dc;
+	}
+	public void setDc(int dc) {
+		this.dc = dc;
+	}
+	public int getZ() {
+		return z;
+	}
+	public void setZ(int z) {
+		this.z = z;
+	}
+	private int dc = 0;
+	private int z = 0;
 	
 	
 	// getter and setter for all registers

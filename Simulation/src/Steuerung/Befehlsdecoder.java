@@ -3,6 +3,7 @@ package Steuerung;
 public class Befehlsdecoder {
 	private int maskedCode;
 	private int code;
+	private Operations myOperations = new Operations();
 	
 	public void decode(int pCode) {
 		code = pCode;
@@ -28,6 +29,7 @@ public class Befehlsdecoder {
 				//ADDLW
 			}else if  (maskedCode==0x0C00){
 				//SUBLW
+				myOperations.subLW(code);
 			}else {
 				System.out.println("invalid code in maskFourBit");
 			}
@@ -36,10 +38,13 @@ public class Befehlsdecoder {
 			maskedCode = code & 0x0F00;
 			if (maskedCode==0x0900) {
 				//ANDLW
+				myOperations.andLW(code);
 			}else if  (maskedCode==0x0800){
 				//IORLW
+				myOperations.iorLW(code);
 			}else if  (maskedCode==0x0A00){
 				//XORLW
+				myOperations.xorLW(code);
 			}else {
 				System.out.println("invalid code in maskFourBit");
 			}
@@ -49,6 +54,7 @@ public class Befehlsdecoder {
 			break;
 		case 0x0000:
 			//MOVLW
+			myOperations.movLW(code);
 			break;
 			default:
 				System.out.println("invalid code in maskFourBit");
