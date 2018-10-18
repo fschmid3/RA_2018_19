@@ -27,6 +27,7 @@ public class Parser {
 			lineBuffer = bReader.readLine();
 		}
 		bReader.close();
+		
 		return fileContent;
 	}
 
