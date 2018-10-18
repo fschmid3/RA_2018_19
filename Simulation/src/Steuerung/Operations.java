@@ -36,7 +36,9 @@ public class Operations {
 		int value = code & 0x00FF;
 		int result = value-register.getW();
 		register.setW(result);
+		setC(result);
 		setZ(result);
+		setDC(value, result);
 		System.out.println(register.getW());
 	}
 
@@ -45,7 +47,9 @@ public class Operations {
 		int value = code & 0x00FF;
 		int result = value+register.getW();
 		register.setW(result);
+		setC(result);
 		setZ(result);
+		setDC(value, result);
 		System.out.println(register.getW());
 	}
 
@@ -54,7 +58,9 @@ public class Operations {
 		int value = code & 0x00FF;
 		int result = register.getW()^value;
 		register.setW(result);
+		setC(result);
 		setZ(result);
+		setDC(value, result);
 		System.out.println(register.getW());
 	}
 	
@@ -68,4 +74,23 @@ public class Operations {
 		}
 	}
 
+	private void setC(int result) {
+		if (result > 256) {
+			register.setC(1);
+		}else {
+			register.setC(0);
+		}
+	}
+	
+	
+	private void setDC(int value, int result) {
+		int maskedValue = value & 0x0010;
+		int maskedResult = result & 0x0010;
+		if (maskedValue != maskedResult) {
+			register.setDc(1);
+		}else {
+			register.setC(0);
+		}
+	}
+	
 }
