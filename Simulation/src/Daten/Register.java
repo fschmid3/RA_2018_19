@@ -7,7 +7,9 @@ public class Register {
 	private int instruction = 0;
 	private int pc = 0;
 	private int gernalPurpReg = 0;
-	private int c = 0; 
+	private int c = 0; 					//carry-Flag
+	private int dc = 0; 				//digit-carry-Flag
+	private int z = 0;					//zero-Flag
 	private int f = 0; 
 	
 	
@@ -35,8 +37,6 @@ public class Register {
 	public void setZ(int z) {
 		this.z = z;
 	}
-	private int dc = 0;
-	private int z = 0;
 	
 	
 	// getter and setter for all registers

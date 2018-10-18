@@ -27,6 +27,7 @@ public class Befehlsdecoder {
 			maskedCode = code & 0x0E00;
 			if (maskedCode==0x0E00) {
 				//ADDLW
+				myOperations.addLW(code);
 			}else if  (maskedCode==0x0C00){
 				//SUBLW
 				myOperations.subLW(code);
