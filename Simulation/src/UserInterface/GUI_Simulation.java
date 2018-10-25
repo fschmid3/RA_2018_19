@@ -455,4 +455,12 @@ public class GUI_Simulation {
 		scrollPane.setBounds(34, 99, 533, 346);
 		frame.getContentPane().add(scrollPane);
 	}
+	
+	private void switchBit(JTextField txtFieldToChange){
+		if(txtFieldToChange.getText().equals("0")){
+			txtFieldToChange.setText("1");
+		}else{
+			txtFieldToChange.setText("0");
+		}
+	}
 }
