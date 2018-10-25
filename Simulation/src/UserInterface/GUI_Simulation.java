@@ -243,7 +243,7 @@ public class GUI_Simulation {
 		frame.getContentPane().add(label_1);
 		
 		JLabel label_2 = new JLabel("5");
-		label_2.setBounds(789, 169, 20, 16);
+		label_2.setBounds(793, 168, 20, 16);
 		frame.getContentPane().add(label_2);
 		
 		JLabel label_3 = new JLabel("4");
@@ -289,7 +289,7 @@ public class GUI_Simulation {
 		frame.getContentPane().add(label_10);
 		
 		JLabel label_11 = new JLabel("5");
-		label_11.setBounds(789, 90, 20, 16);
+		label_11.setBounds(793, 90, 20, 16);
 		frame.getContentPane().add(label_11);
 		
 		JLabel label_12 = new JLabel("4");
