@@ -2,11 +2,13 @@ package Steuerung;
 
 import Daten.Register;
 import Daten.Stack;
+import UserInterface.GUI_Simulation;
 
 public class Operations {
 
 	private Register register = new Register();
 	private Stack myStack = new Stack();
+	
 
 	//saves value in w register
 	public void movLW(int code) {

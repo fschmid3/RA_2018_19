@@ -15,7 +15,8 @@ import javax.swing.JList;
 import javax.swing.JTextArea;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JScrollBar;
+
+import Steuerung.Control;
 import javax.swing.JScrollPane;
 import java.awt.SystemColor;
 
@@ -48,6 +49,7 @@ public class GUI_Simulation {
 	private JTextField textField_24;
 	private JTextField textField_25;
 	private JTable table;
+	private Control strg;
 
 	/**
 	 * Launch the application.
@@ -70,6 +72,7 @@ public class GUI_Simulation {
 	 */
 	public GUI_Simulation() {
 		initialize();
+		strg = new Control(this);
 	}
 
 	/**
