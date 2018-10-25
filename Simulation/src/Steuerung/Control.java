@@ -11,7 +11,7 @@ public class Control {
 	Parser myParser = new Parser();
 	Befehlsdecoder myDec = new Befehlsdecoder(register);
 	// = myParser.readFile("testfiles/TPicSim1.LST");
-	String[] filePath;
+	String[] fileContent;
 	
 	
 	
@@ -22,13 +22,13 @@ public class Control {
 	}
 
 
-	public void decodeFile(String[] path) throws IOException {
-		filePath = path;
-		for(int i = 0; (i<filePath.length)&&filePath[i]!=null; i++) {
+	public void decodeFile(String path) throws IOException {
+		fileContent = myParser.readFile(path);
+		for(int i = 0; (i<fileContent.length)&&fileContent[i]!=null; i++) {
 			//System.out.println(myStr[i]);
 		}
 		
-		int [] ai = myParser.parseCode(filePath);
+		int [] ai = myParser.parseCode(fileContent);
 		for(int i = 0; (i<ai.length)&&ai[i]!=0; i++) {
 			//System.out.println(ai[i]);
 			myDec.decode(ai[i]);
