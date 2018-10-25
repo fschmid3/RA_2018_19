@@ -463,4 +463,32 @@ public class GUI_Simulation {
 			txtFieldToChange.setText("0");
 		}
 	}
+	
+	public void setW(int w) {
+		textField_2.setText(w+"");
+	}
+	public void setPC(int pc) {
+		textField_3.setText(pc+"");
+	}
+	public void setC(int c) {
+		textField_10.setText(c+"");
+	}
+	public void setDC(int dc) {
+		textField_9.setText(dc+"");
+	}
+	public void setZ(int z) {
+		textField_8.setText(z+"");
+	}
+	public void setFSR(int fsr) {
+		textField_4.setText(fsr+"");
+	}
+	public void setPCLATCH(int pcla) {
+		textField_6.setText(pcla+"");
+	}
+	public void setPCL(int pcl) {
+		textField_5.setText(pcl+"");
+	}
+	public void setStatus(int status) {
+		textField_7.setText(status+"");
+	}
 }
