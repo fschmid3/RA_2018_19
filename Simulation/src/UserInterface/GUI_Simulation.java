@@ -94,84 +94,84 @@ public class GUI_Simulation {
 		frame.getContentPane().add(lblPortB);
 		
 		JLabel lblW = new JLabel("w");
-		lblW.setBounds(352, 178, 56, 16);
+		lblW.setBounds(347, 110, 56, 16);
 		frame.getContentPane().add(lblW);
 		
 		JLabel lblPc = new JLabel("PC");
-		lblPc.setBounds(352, 207, 56, 16);
+		lblPc.setBounds(347, 139, 56, 16);
 		frame.getContentPane().add(lblPc);
 		
 		JLabel lblNewLabel = new JLabel("FSR");
-		lblNewLabel.setBounds(352, 236, 56, 16);
+		lblNewLabel.setBounds(347, 168, 56, 16);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblPcl = new JLabel("PCL");
-		lblPcl.setBounds(352, 265, 56, 16);
+		lblPcl.setBounds(347, 197, 56, 16);
 		frame.getContentPane().add(lblPcl);
 		
 		JLabel lblPclatch = new JLabel("PCLATCH");
-		lblPclatch.setBounds(352, 294, 56, 16);
+		lblPclatch.setBounds(347, 226, 56, 16);
 		frame.getContentPane().add(lblPclatch);
 		
 		JLabel lblStatus = new JLabel("Status");
-		lblStatus.setBounds(352, 323, 56, 16);
+		lblStatus.setBounds(347, 255, 56, 16);
 		frame.getContentPane().add(lblStatus);
 		
 		JLabel lblZ = new JLabel("Z");
-		lblZ.setBounds(562, 204, 20, 16);
+		lblZ.setBounds(521, 110, 20, 16);
 		frame.getContentPane().add(lblZ);
 		
 		JLabel lblDc = new JLabel("DC");
-		lblDc.setBounds(598, 204, 20, 16);
+		lblDc.setBounds(557, 110, 20, 16);
 		frame.getContentPane().add(lblDc);
 		
 		JLabel lblC = new JLabel("C");
-		lblC.setBounds(630, 204, 20, 16);
+		lblC.setBounds(589, 110, 20, 16);
 		frame.getContentPane().add(lblC);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(420, 175, 63, 22);
+		textField_2.setBounds(415, 107, 63, 22);
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(420, 204, 63, 22);
+		textField_3.setBounds(415, 136, 63, 22);
 		frame.getContentPane().add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(420, 233, 63, 22);
+		textField_4.setBounds(415, 165, 63, 22);
 		frame.getContentPane().add(textField_4);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
-		textField_5.setBounds(420, 262, 63, 22);
+		textField_5.setBounds(415, 194, 63, 22);
 		frame.getContentPane().add(textField_5);
 		
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
-		textField_6.setBounds(420, 291, 63, 22);
+		textField_6.setBounds(415, 223, 63, 22);
 		frame.getContentPane().add(textField_6);
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
-		textField_7.setBounds(420, 320, 63, 22);
+		textField_7.setBounds(415, 252, 63, 22);
 		frame.getContentPane().add(textField_7);
 		
 		textField_8 = new JTextField();
 		textField_8.setColumns(10);
-		textField_8.setBounds(562, 230, 20, 22);
+		textField_8.setBounds(521, 136, 20, 22);
 		frame.getContentPane().add(textField_8);
 		
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
-		textField_9.setBounds(598, 230, 20, 22);
+		textField_9.setBounds(557, 136, 20, 22);
 		frame.getContentPane().add(textField_9);
 		
 		textField_10 = new JTextField();
 		textField_10.setColumns(10);
-		textField_10.setBounds(630, 230, 20, 22);
+		textField_10.setBounds(589, 136, 20, 22);
 		frame.getContentPane().add(textField_10);
 		
 		textField_11 = new JTextField();
