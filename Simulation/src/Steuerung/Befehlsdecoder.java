@@ -1,10 +1,15 @@
 package Steuerung;
 
+import Daten.Register;
 
 public class Befehlsdecoder {
 	private int maskedCode;
 	private int code;
-	private Operations myOperations = new Operations();
+	private Operations myOperations;
+	
+	public Befehlsdecoder(Register pRegister) {
+		myOperations = new Operations(pRegister);
+	}
 	
 	//decides of which sort the statement is -> how many bits encode statement
 	//and calls relevant methods

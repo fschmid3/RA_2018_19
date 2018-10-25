@@ -6,9 +6,12 @@ import UserInterface.GUI_Simulation;
 
 public class Operations {
 
-	private Register register = new Register();
+	private Register register;
 	private Stack myStack = new Stack();
 	
+	public Operations(Register pRegister) {
+		register=pRegister;
+	}
 
 	//saves value in w register
 	public void movLW(int code) {
