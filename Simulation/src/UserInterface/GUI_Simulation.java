@@ -91,9 +91,11 @@ public class GUI_Simulation {
 		frame.getContentPane().setLayout(null);
 		
 		textField_1 = new JTextField();
+		textField_1.setEditable(false);
 		textField_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_1);
 			}
 		});
 		textField_1.setBounds(673, 211, 20, 22);
@@ -141,54 +143,65 @@ public class GUI_Simulation {
 		frame.getContentPane().add(lblC);
 		
 		textField_2 = new JTextField();
+		textField_2.setEditable(false);
 		textField_2.setBounds(741, 286, 63, 22);
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
+		textField_3.setEditable(false);
 		textField_3.setColumns(10);
 		textField_3.setBounds(741, 315, 63, 22);
 		frame.getContentPane().add(textField_3);
 		
 		textField_4 = new JTextField();
+		textField_4.setEditable(false);
 		textField_4.setColumns(10);
 		textField_4.setBounds(741, 344, 63, 22);
 		frame.getContentPane().add(textField_4);
 		
 		textField_5 = new JTextField();
+		textField_5.setEditable(false);
 		textField_5.setColumns(10);
 		textField_5.setBounds(741, 373, 63, 22);
 		frame.getContentPane().add(textField_5);
 		
 		textField_6 = new JTextField();
+		textField_6.setEditable(false);
 		textField_6.setColumns(10);
 		textField_6.setBounds(741, 402, 63, 22);
 		frame.getContentPane().add(textField_6);
 		
 		textField_7 = new JTextField();
+		textField_7.setEditable(false);
 		textField_7.setColumns(10);
 		textField_7.setBounds(741, 431, 63, 22);
 		frame.getContentPane().add(textField_7);
 		
 		textField_8 = new JTextField();
+		textField_8.setEditable(false);
 		textField_8.setColumns(10);
 		textField_8.setBounds(847, 315, 20, 22);
 		frame.getContentPane().add(textField_8);
 		
 		textField_9 = new JTextField();
+		textField_9.setEditable(false);
 		textField_9.setColumns(10);
 		textField_9.setBounds(870, 315, 20, 22);
 		frame.getContentPane().add(textField_9);
 		
 		textField_10 = new JTextField();
+		textField_10.setEditable(false);
 		textField_10.setColumns(10);
 		textField_10.setBounds(893, 315, 20, 22);
 		frame.getContentPane().add(textField_10);
 		
 		textField_11 = new JTextField();
+		textField_11.setEditable(false);
 		textField_11.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_11);
 			}
 		});
 		textField_11.setColumns(10);
@@ -196,9 +209,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_11);
 		
 		textField_12 = new JTextField();
+		textField_12.setEditable(false);
 		textField_12.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_12);
 			}
 		});
 		textField_12.setColumns(10);
@@ -206,9 +221,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_12);
 		
 		textField_13 = new JTextField();
+		textField_13.setEditable(false);
 		textField_13.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				switchBit(textField_13);
 			}
 		});
 		textField_13.setColumns(10);
@@ -216,9 +233,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_13);
 		
 		textField_14 = new JTextField();
+		textField_14.setEditable(false);
 		textField_14.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_14);
 			}
 		});
 		textField_14.setColumns(10);
@@ -226,9 +245,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_14);
 		
 		textField_15 = new JTextField();
+		textField_15.setEditable(false);
 		textField_15.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_15);
 			}
 		});
 		textField_15.setColumns(10);
@@ -236,9 +257,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_15);
 		
 		textField_16 = new JTextField();
+		textField_16.setEditable(false);
 		textField_16.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_16);
 			}
 		});
 		textField_16.setColumns(10);
@@ -274,9 +297,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(label_6);
 		
 		textField_17 = new JTextField();
+		textField_17.setEditable(false);
 		textField_17.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_17);
 			}
 		});
 		textField_17.setColumns(10);
@@ -324,9 +349,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(label_16);
 		
 		textField_18 = new JTextField();
+		textField_18.setEditable(false);
 		textField_18.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_18);
 			}
 		});
 		textField_18.setColumns(10);
@@ -334,9 +361,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_18);
 		
 		textField_19 = new JTextField();
+		textField_19.setEditable(false);
 		textField_19.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_19);
 			}
 		});
 		textField_19.setColumns(10);
@@ -344,9 +373,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_19);
 		
 		textField_20 = new JTextField();
+		textField_20.setEditable(false);
 		textField_20.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_20);
 			}
 		});
 		textField_20.setColumns(10);
@@ -354,9 +385,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_20);
 		
 		textField_21 = new JTextField();
+		textField_21.setEditable(false);
 		textField_21.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_21);
 			}
 		});
 		textField_21.setColumns(10);
@@ -364,9 +397,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_21);
 		
 		textField_22 = new JTextField();
+		textField_22.setEditable(false);
 		textField_22.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_22);
 			}
 		});
 		textField_22.setColumns(10);
@@ -374,9 +409,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_22);
 		
 		textField_23 = new JTextField();
+		textField_23.setEditable(false);
 		textField_23.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_23);
 			}
 		});
 		textField_23.setColumns(10);
@@ -384,9 +421,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_23);
 		
 		textField_24 = new JTextField();
+		textField_24.setEditable(false);
 		textField_24.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_24);
 			}
 		});
 		textField_24.setColumns(10);
@@ -394,9 +433,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_24);
 		
 		textField_25 = new JTextField();
+		textField_25.setEditable(false);
 		textField_25.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				switchBit(textField_25);
 			}
 		});
 		textField_25.setColumns(10);
@@ -447,16 +488,37 @@ public class GUI_Simulation {
 				{null, null, null},
 			},
 			new String[] {
-				"New column", "New column", "New column"
+				"M", "B", "New column"
 			}
-		));
-		table.setBounds(36, 99, 533, 346);
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		table.getColumnModel().getColumn(0).setResizable(false);
+		table.getColumnModel().getColumn(0).setPreferredWidth(30);
+		table.getColumnModel().getColumn(0).setMinWidth(30);
+		table.getColumnModel().getColumn(0).setMaxWidth(30);
+		table.getColumnModel().getColumn(1).setResizable(false);
+		table.getColumnModel().getColumn(1).setPreferredWidth(30);
+		table.getColumnModel().getColumn(1).setMinWidth(30);
+		table.getColumnModel().getColumn(1).setMaxWidth(30);
+		table.getColumnModel().getColumn(2).setResizable(false);
+		table.getColumnModel().getColumn(2).setPreferredWidth(200);
+		table.setBounds(33, 42, 437, 329);
 		frame.getContentPane().add(table);
 		
-
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(34, 99, 533, 346);
+		scrollPane.setBounds(34, 99, 531, 351);
 		frame.getContentPane().add(scrollPane);
+		
+		
+		JButton btnLoadLstFile = new JButton("Load LST File...");
+		btnLoadLstFile.setBounds(34, 52, 125, 25);
+		frame.getContentPane().add(btnLoadLstFile);
 	}
 	
 	private void switchBit(JTextField txtFieldToChange){
