@@ -122,11 +122,11 @@ public class GUI_Simulation {
 		frame.getContentPane().add(lblZ);
 		
 		JLabel lblDc = new JLabel("DC");
-		lblDc.setBounds(557, 110, 20, 16);
+		lblDc.setBounds(544, 110, 20, 16);
 		frame.getContentPane().add(lblDc);
 		
 		JLabel lblC = new JLabel("C");
-		lblC.setBounds(589, 110, 20, 16);
+		lblC.setBounds(567, 110, 20, 16);
 		frame.getContentPane().add(lblC);
 		
 		textField_2 = new JTextField();
@@ -166,12 +166,12 @@ public class GUI_Simulation {
 		
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
-		textField_9.setBounds(557, 136, 20, 22);
+		textField_9.setBounds(544, 136, 20, 22);
 		frame.getContentPane().add(textField_9);
 		
 		textField_10 = new JTextField();
 		textField_10.setColumns(10);
-		textField_10.setBounds(589, 136, 20, 22);
+		textField_10.setBounds(567, 136, 20, 22);
 		frame.getContentPane().add(textField_10);
 		
 		textField_11 = new JTextField();
