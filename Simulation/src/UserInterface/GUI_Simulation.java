@@ -391,9 +391,5 @@ public class GUI_Simulation {
 		textField_25.setColumns(10);
 		textField_25.setBounds(753, 107, 20, 22);
 		frame.getContentPane().add(textField_25);
-		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(508, 454, 56, 16);
-		frame.getContentPane().add(lblNewLabel_1);
 	}
 }
