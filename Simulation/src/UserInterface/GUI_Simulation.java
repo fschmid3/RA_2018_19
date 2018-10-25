@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import Steuerung.Control;
 import javax.swing.JScrollPane;
 import java.awt.SystemColor;
+import java.awt.Font;
 
 public class GUI_Simulation {
 
@@ -472,30 +473,9 @@ public class GUI_Simulation {
 		
 			
 		table = new JTable();
+		table.setFont(new Font("Courier New", Font.PLAIN, 13));
 		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-				{null, null, null},
-			},
+			new Object[350][3],
 			new String[] {
 				"M", "B", "New column"
 			}
@@ -564,5 +544,9 @@ public class GUI_Simulation {
 	}
 	public void setStatus(int status) {
 		textField_7.setText(status+"");
+	}
+	
+	public void setTableRow(String text, int row) {
+		table.setValueAt(text, row, 2);
 	}
 }

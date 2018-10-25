@@ -25,6 +25,7 @@ public class Control {
 	public void decodeFile(String path) throws IOException {
 		fileContent = myParser.readFile(path);
 		for(int i = 0; (i<fileContent.length)&&fileContent[i]!=null; i++) {
+			gui.setTableRow(fileContent[i], i);
 			//System.out.println(myStr[i]);
 		}
 		
