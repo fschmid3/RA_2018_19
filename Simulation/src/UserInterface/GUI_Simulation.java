@@ -393,7 +393,7 @@ public class GUI_Simulation {
 		frame.getContentPane().add(textField_25);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setBounds(617, 616, 56, 16);
+		lblNewLabel_1.setBounds(508, 454, 56, 16);
 		frame.getContentPane().add(lblNewLabel_1);
 	}
 }
