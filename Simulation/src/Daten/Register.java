@@ -5,14 +5,18 @@ public class Register {
 	private int w = 0;
 	private int status = 0;
 	private int instruction = 0;
-	private int pc = 0;
+	private int pc = 0;					//Programm counter
 	private int gernalPurpReg = 0;
 	private int c = 0; 					//carry-Flag
 	private int dc = 0; 				//digit-carry-Flag
 	private int z = 0;					//zero-Flag
 	private int f = 0; 
+	private int portA;					//Port A
+	private int portB;					//Port B
 	
 	
+
+	// getter and setter for all registers
 	
 	public int getF() {
 		return f;
@@ -40,7 +44,6 @@ public class Register {
 	}
 	
 	
-	// getter and setter for all registers
 	public int getFsr() {
 		return fsr;
 	}
@@ -76,6 +79,18 @@ public class Register {
 	}
 	public void setGernalPurpReg(int gernalPurpReg) {
 		this.gernalPurpReg = gernalPurpReg;
+	}
+	public int getPortA() {
+		return portA;
+	}
+	public void setPortA(int portA) {
+		this.portA = portA;
+	}
+	public int getPortB() {
+		return portB;
+	}
+	public void setPortB(int portB) {
+		this.portB = portB;
 	}
 	
 	

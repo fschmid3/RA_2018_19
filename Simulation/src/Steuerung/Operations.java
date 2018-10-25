@@ -2,7 +2,6 @@ package Steuerung;
 
 import Daten.Register;
 import Daten.Stack;
-import UserInterface.GUI_Simulation;
 
 public class Operations {
 

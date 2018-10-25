@@ -3,7 +3,6 @@ package UserInterface;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTextPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
@@ -13,8 +12,6 @@ import java.io.IOException;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JList;
-import javax.swing.JTextArea;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
