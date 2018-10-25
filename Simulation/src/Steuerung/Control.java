@@ -32,12 +32,12 @@ public class Control {
 		for(int i = 0; (i<ai.length)&&ai[i]!=0; i++) {
 			//System.out.println(ai[i]);
 			myDec.decode(ai[i]);
+			register.setPc(register.getPc()+1);
 			gui.setC(register.getC());
 			gui.setDC(register.getDc());
 			gui.setPC(register.getPc());
-			gui.setDC(register.getDc());
-			gui.setDC(register.getDc());
-			gui.setDC(register.getDc());
+			gui.setW(register.getW());
+			gui.setZ(register.getZ());
 		}
 	}
 	
