@@ -15,6 +15,7 @@ public class Control {
 	
 	
 	
+	
 
 	public Control(GUI_Simulation myGUI) {
 		gui=myGUI;

@@ -7,6 +7,7 @@ public class Befehlsdecoder {
 	private int code;
 	private Operations myOperations;
 	
+	
 	public Befehlsdecoder(Register pRegister) {
 		myOperations = new Operations(pRegister);
 	}

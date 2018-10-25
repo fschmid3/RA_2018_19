@@ -13,6 +13,7 @@ public class Register {
 	private int f = 0; 
 	
 	
+	
 	public int getF() {
 		return f;
 	}
