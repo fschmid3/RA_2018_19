@@ -396,4 +396,6 @@ public class GUI_Simulation {
 		lblNewLabel_1.setBounds(508, 454, 56, 16);
 		frame.getContentPane().add(lblNewLabel_1);
 	}
+	
+	
 }
