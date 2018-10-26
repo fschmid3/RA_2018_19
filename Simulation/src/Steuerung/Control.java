@@ -12,6 +12,8 @@ public class Control {
 	Befehlsdecoder myDec = new Befehlsdecoder(register);
 	// = myParser.readFile("testfiles/TPicSim1.LST");
 	String[] fileContent;
+	String path = "testfiles/TPicSim1.LST";
+	int [] ai = null;
 	
 	
 	
@@ -20,19 +22,29 @@ public class Control {
 	public Control(GUI_Simulation myGUI) {
 		gui=myGUI;
 	}
-
-
-	public void decodeFile(String path) throws IOException {
+	
+	public void putFileContentInString() throws IOException {
 		fileContent = myParser.readFile(path);
+	}
+	
+
+
+	public void decodeNextLine() throws IOException {
+		
 		for(int i = 0; (i<fileContent.length)&&fileContent[i]!=null; i++) {
 			gui.setTableRow(fileContent[i], i);
 			//System.out.println(myStr[i]);
 		}
 		
-		int [] ai = myParser.parseCode(fileContent);
-		for(int i = 0; (i<ai.length)&&ai[i]!=0; i++) {
-			//System.out.println(ai[i]);
-			myDec.decode(ai[i]);
+		for(int i = 0; i<register.getPc(); i++) {
+			gui.setTableRow(fileContent[i], i);
+			//System.out.println(myStr[i]);
+		}
+		
+		ai = myParser.parseCode(fileContent);
+		if((register.getPc()<ai.length)&&ai[register.getPc()]!=0) {
+			//System.out.println(ai[register.getPc()]);
+			myDec.decode(ai[register.getPc()]);
 			register.setPc(register.getPc()+1);
 			gui.setC(register.getC());
 			gui.setDC(register.getDc());
@@ -43,5 +55,15 @@ public class Control {
 	}
 	
 	
+	public void decodeAll() throws IOException {
+		while((register.getPc()<ai.length)&&ai[register.getPc()]!=0) {
+			decodeNextLine();
+		}
+	}
+	
+	
+	public void setPath(String pPath) {
+		path=pPath;
+	}
 
 }
