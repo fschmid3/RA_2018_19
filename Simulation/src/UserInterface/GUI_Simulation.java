@@ -450,7 +450,6 @@ public class GUI_Simulation {
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					strg.putFileContentInString();
 					strg.decodeNextLine();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -519,15 +518,20 @@ public class GUI_Simulation {
 
 		JFileChooser fileChooser = new JFileChooser();
 
-		JButton btnLoadLstFile = new JButton("Load LST File...");
+		JButton btnLoadLstFile = new JButton("Load File...");
 		btnLoadLstFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+				fileChooser.setCurrentDirectory(new File("."));
 				JFrame openFrame = new JFrame("open...");
 				int result = fileChooser.showOpenDialog(openFrame);
 				if (result == JFileChooser.APPROVE_OPTION) {
 					File selectedFile = fileChooser.getSelectedFile();
-					strg.setPath(selectedFile.getAbsolutePath());
+					try {
+						strg.fileOpened(selectedFile.getAbsolutePath());
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		});

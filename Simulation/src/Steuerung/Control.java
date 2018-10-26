@@ -23,23 +23,17 @@ public class Control {
 		gui=myGUI;
 	}
 	
-	public void putFileContentInString() throws IOException {
-		fileContent = myParser.readFile(path);
+	//calls all methods that are required for first initialition after file has been selected
+	public void fileOpened(String pPath) throws IOException {
+		setPath(pPath);
+		putFileContentInString();
+		setFileInTable();
 	}
 	
-
-
+	
+	
+	//decodes ONE line -> next one, of assembler code
 	public void decodeNextLine() throws IOException {
-		
-		for(int i = 0; (i<fileContent.length)&&fileContent[i]!=null; i++) {
-			gui.setTableRow(fileContent[i], i);
-			//System.out.println(myStr[i]);
-		}
-		
-		for(int i = 0; i<register.getPc(); i++) {
-			gui.setTableRow(fileContent[i], i);
-			//System.out.println(myStr[i]);
-		}
 		
 		ai = myParser.parseCode(fileContent);
 		if((register.getPc()<ai.length)&&ai[register.getPc()]!=0) {
@@ -54,16 +48,37 @@ public class Control {
 		}
 	}
 	
-	
+	//decodes ALL lines of assembler code
 	public void decodeAll() throws IOException {
 		while((register.getPc()<ai.length)&&ai[register.getPc()]!=0) {
 			decodeNextLine();
 		}
 	}
 	
-	
-	public void setPath(String pPath) {
+	//sets path of new selected file
+	private void setPath(String pPath) {
 		path=pPath;
 	}
+	
+
+	//saves filecontent in String
+	private void putFileContentInString() throws IOException {
+		fileContent = myParser.readFile(path);
+	}
+	
+	//puts filecode in table on gui
+	private void setFileInTable() {
+		for(int i = 0; (i<fileContent.length)&&fileContent[i]!=null; i++) {
+			gui.setTableRow(fileContent[i], i);
+			//System.out.println(myStr[i]);
+		}
+		
+		for(int i = 0; i<register.getPc(); i++) {
+			gui.setTableRow(fileContent[i], i);
+			//System.out.println(myStr[i]);
+		}
+		
+	}
+	
 
 }
