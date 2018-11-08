@@ -1,13 +1,29 @@
 package Daten;
 
 public class Stack {
-	private int stack[] = new int[256];
-	private int stackpointer = 0;
+	private int stack[] = new int[8];
+	private int stackpointer;
+	private int numOfElements;
+	
+	public Stack() {
+		this.stackpointer = 0;
+		this.numOfElements = 0;
+	}
 	
 	//pushs latest data on Stack
 	public void push(int data) {
-		stack[stackpointer]=data;
-		if(stackpointer < 255) {
+		
+		if(stackpointer < 8) {
+			stack[stackpointer]=data;
+			stackpointer++;
+			if (numOfElements < 8) {
+				numOfElements++;
+			}
+			
+		}
+		else {
+			stackpointer = 0;
+			stack[stackpointer]=data;
 			stackpointer++;
 		}
 		
@@ -15,13 +31,34 @@ public class Stack {
 	
 	//returns latest data from stack
 	public int pop() {
-		if(stackpointer>0) {
+		int data = 0;
+		if(stackpointer > 0) {
+			
+			if (numOfElements > 0) {
+				numOfElements--;
+			}
 			stackpointer--;
+			data = stack[stackpointer];
+			
+			return data;
 		}
-		return stack[stackpointer+1];
+		else {
+			if (numOfElements >0) {
+				stackpointer = 7;
+				data = stack[stackpointer];
+			}
+			return 0;
+		}
+	}
+	
+	public int getNumOfElements() {
+		return numOfElements;
 	}
 	
 	
+	public int[] getStack() {
+		return stack;
+	}
 	
 	
 }
