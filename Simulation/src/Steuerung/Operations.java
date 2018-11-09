@@ -79,6 +79,7 @@ public class Operations {
 		System.out.println(register.getW());
 	}
 
+	
 
 	//sets PC on new value
 	public void goTo(int code) {
@@ -92,6 +93,151 @@ public class Operations {
 	}
 
 
+	
+	//moves w in f
+	public void movWF() {
+		register.setF(register.getW());
+	}
+	
+	//clears F
+	public void clrF() {
+		register.setF(0);
+		setZ(0);
+	}
+
+	//clears W
+	public void clrW() {
+		register.setW(0);
+		setZ(0);
+	}
+
+	//Subtracts W from F
+	public void subWF(int code) {
+		int value =  register.getF()-register.getW();
+		saveInFOrWBasedOnD(code, value);
+		setZ(value);
+		setC(value);
+		setDC(code&0x007F, value);
+	}
+
+	//decrements F
+	public void decF(int code) {
+		int value =  register.getF()-1;
+		saveInFOrWBasedOnD(code, value);
+		setZ(value);
+	}
+
+	//inclusive or w with f
+	public void iorWF(int code) {
+		int value =  register.getF()|register.getW();
+		saveInFOrWBasedOnD(code, value);
+		setZ(value);
+	}
+
+	//and or w with f
+	public void andWF(int code) {
+		int value = register.getF()&register.getW();
+		saveInFOrWBasedOnD(code, value);
+		setZ(value);
+	}
+
+	//exclusive or w with f
+	public void xorWF(int code) {
+		int value =  register.getF()^register.getW();
+		saveInFOrWBasedOnD(code, value);
+		setZ(value);
+	}
+	
+	//adds w and f
+	public void addWF(int code) {
+		int value =  register.getF()+register.getW();
+		saveInFOrWBasedOnD(code, value);
+		setZ(value);
+		setC(value);
+		setDC(code&0x007F, value);
+	}
+	
+	//moves f
+	public void movF(int code) {
+		int value =  register.getF();
+		saveInFOrWBasedOnD(code, value);
+		setZ(value);
+	}
+	
+	//complements f
+	public void comF(int code) {
+		int value =  ~register.getF();
+		saveInFOrWBasedOnD(code, value);
+		setZ(value);
+	}
+	
+	//increments f
+	public void incF(int code) {
+		int value =  register.getF()+1;
+		saveInFOrWBasedOnD(code, value);
+		setZ(value);
+	}
+	
+	//decrements f if not 0
+	public void decFSZ(int code) {
+		int value =  register.getF()-1;
+		if(register.getF()!=0) {
+			saveInFOrWBasedOnD(code, value);
+			setZ(value);
+		}
+	}
+	
+	//rotates f right
+	public void rrF(int code) {
+		int value =  Integer.rotateRight(register.getF(), 1);
+		saveInFOrWBasedOnD(code, value);
+		setC(value);
+	}
+	
+	//rotates f left
+	public void rlF(int code) {
+		int value =  Integer.rotateLeft(register.getF(), 1);
+		saveInFOrWBasedOnD(code, value);
+		setC(value);
+	}
+	
+	//swaps high and low nibble of f
+	public void swapF(int code) {
+		int contentF = register.getF();
+		int tempHighNibble = contentF & 0x00F0;
+		int tempLowNibble = contentF & 0x000F;
+		contentF = Integer.rotateRight(tempHighNibble, 4) + Integer.rotateLeft(tempLowNibble, 4);
+		saveInFOrWBasedOnD(code, contentF);
+		setZ(contentF);
+	}
+	
+	//increments f if not 0
+	public void incFSZ(int code) {
+		if(register.getF()!=0) {
+			saveInFOrWBasedOnD(code, register.getF()+1);
+		}
+	}
+	
+	
+	
+	
+	//decides depending on d, whether to save in W or F
+	private void saveInFOrWBasedOnD(int code, int value) {
+		int masked = code & 0x0080;
+		if(masked==0) {
+			register.setW(value);
+		}else {
+			register.setF(value);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	private void setZ(int result) {
 		if (result == 0) {
 			register.setZ(1);
@@ -118,5 +264,5 @@ public class Operations {
 			register.setC(0);
 		}
 	}
-
+	
 }

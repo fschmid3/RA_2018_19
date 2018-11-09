@@ -25,9 +25,9 @@ public class Befehlsdecoder {
 		case 0x2000: maskOneBit();		//0x2000 -> one bit statement
 		break;
 		
-		case 0x0000: 
+		case 0x0000: maskForOrFiveBit();
 		break;
-			
+
 		default:
 			break; 
 		}
@@ -96,6 +96,88 @@ public class Befehlsdecoder {
 			break;
 			default:
 				System.out.println("invalid code in maskOneBit");
+				break;
+		}
+		
+	}
+	
+	
+	// decides, whether code is for CALL or GOTO statement and calls relevant methods
+	private void maskForOrFiveBit() {
+		int maskedCode = code & 0x0F00;
+		switch(maskedCode) {
+		case 0x0000:
+			//MOVWF
+			myOperations.movWF();
+			break;
+		case 0x0100:
+			if((code&0x0080)==0x0000) {
+				//CLRF
+				myOperations.clrF();
+			}else {
+				//CLRW
+				myOperations.clrW();
+			}
+			break;
+		case 0x0200:
+			//SUBWF
+			myOperations.subWF(code);
+			break;
+		case 0x0300:
+			//DECF
+			myOperations.decF(code);
+			break;
+		case 0x0400:
+			//IORWF
+			myOperations.iorWF(code);
+			
+			break;
+		case 0x0500:
+			//ANDWF
+			myOperations.andWF(code);
+			break;
+		case 0x0600:
+			//XORWF
+			myOperations.xorWF(code);
+			break;
+		case 0x0700:
+			//ADDWF
+			myOperations.addWF(code);
+			break;
+		case 0x0800:
+			//MOVF
+			myOperations.movF(code);
+			break;
+		case 0x0900:
+			//COMF
+			myOperations.comF(code);
+			break;
+		case 0x0A00:
+			//INCF
+			myOperations.incF(code);
+			break;
+		case 0x0B00:
+			//DECFSZ
+			myOperations.decFSZ(code);
+			break;
+		case 0x0C00:
+			//RRF
+			myOperations.rrF(code);
+			break;
+		case 0x0D00:
+			//RLF
+			myOperations.rlF(code);
+			break;
+		case 0x0E00:
+			//SWAPF
+			myOperations.swapF(code);
+			break;
+		case 0x0F00:
+			//INCFSZ
+			myOperations.incFSZ(code);
+			break;
+			default:
+				System.out.println("invalid code in maskForOrFiveBit");
 				break;
 		}
 		
