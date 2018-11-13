@@ -87,8 +87,8 @@ public class Befehlsdecoder {
 		switch(maskedCode) {
 		case 0x0000:
 			//CALL
-			myOperations.goTo(code);
 			myOperations.saveAdressOnStack();
+			myOperations.goTo(code);
 			break;
 		case 0x0800:
 			//GOTO
