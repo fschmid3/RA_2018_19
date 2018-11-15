@@ -37,21 +37,23 @@ public class Control {
 	public void decodeNextLine() throws IOException {
 		
 		ai = myParser.parseCode(fileContent);
-		if((register.getPc()<ai.length)&&ai[register.getPc()]!=0) {
+		if((register.getPc()<ai.length)) {
 			//System.out.println(ai[register.getPc()]);
-			myDec.decode(ai[register.getPc()]);
+			int pc = register.getPc();
+			myDec.decode(ai[pc]);
 			register.setPc(register.getPc()+1);
 			gui.setC(register.getC());
 			gui.setDC(register.getDc());
 			gui.setPC(register.getPc());
 			gui.setW(register.getW());
 			gui.setZ(register.getZ());
+			gui.setSelection(pc, 2);
 		}
 	}
 	
 	//decodes ALL lines of assembler code
 	public void decodeAll() throws IOException {
-		while((register.getPc()<ai.length)&&ai[register.getPc()]!=0) {
+		while((register.getPc()<ai.length)) {
 			decodeNextLine();
 		}
 	}

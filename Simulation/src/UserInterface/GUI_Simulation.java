@@ -591,4 +591,10 @@ public class GUI_Simulation {
 		table.setValueAt(text, row, 2);
 		
 	}
+	
+	public void setSelection(int row, int col) {
+		table.setCellSelectionEnabled(true);
+		table.changeSelection(row-1, col, true, false);
+		table.changeSelection(row, col, true, false);
+	}
 }
