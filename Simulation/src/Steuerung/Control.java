@@ -37,7 +37,7 @@ public class Control {
 	public void decodeNextLine() throws IOException {
 		
 		ai = myParser.parseCode(fileContent);
-		if((register.getPc()<ai.length)) {
+		if((register.getPc()<ai.length) && ( register.getPc() < myParser.getEndRow())) {
 			//System.out.println(ai[register.getPc()]);
 			int pc = register.getPc();
 			myDec.decode(ai[pc]);
@@ -47,13 +47,13 @@ public class Control {
 			gui.setPC(register.getPc());
 			gui.setW(register.getW());
 			gui.setZ(register.getZ());
-			gui.setSelection(pc, 2);
+			gui.setSelection(pc + myParser.getStartRow(), 2);
 		}
 	}
 	
 	//decodes ALL lines of assembler code
 	public void decodeAll() throws IOException {
-		while((register.getPc()<ai.length)) {
+		while((register.getPc()<ai.length) ) {
 			decodeNextLine();
 		}
 	}
