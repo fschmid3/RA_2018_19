@@ -1,9 +1,11 @@
 package UserInterface;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -482,16 +484,11 @@ public class GUI_Simulation {
 		btnNext.setBounds(843, 680, 70, 25);
 		frame.getContentPane().add(btnNext);
 
-
-
 		table = new JTable();
+		
+		
 		table.setFont(new Font("Courier New", Font.PLAIN, 13));
-		table.setModel(new DefaultTableModel(
-				new Object[350][3],
-				new String[] {
-						"M", "B", "New column"
-				}
-				) {
+		table.setModel(new DefaultTableModel(new Object[350][3], new String[] {"M", "B", "New column"}) {
 			boolean[] columnEditables = new boolean[] {
 					false, false, false
 			};
@@ -510,12 +507,26 @@ public class GUI_Simulation {
 		table.getColumnModel().getColumn(2).setResizable(false);
 		table.getColumnModel().getColumn(2).setPreferredWidth(200);
 		table.setBounds(117, 70, 337, 5414);
+		
 		frame.getContentPane().add(table);
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(34, 99, 531, 351);
 		frame.getContentPane().add(scrollPane);
-
+		
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int row = table.rowAtPoint(e.getPoint());
+		        int col = table.columnAtPoint(e.getPoint());
+		        if (row >= 0 && col >= 0) {
+		            table.setCellSelectionEnabled(true);
+		            table.setSelectionBackground(new Color(0xe81e21));;
+		            table.changeSelection(row, col, true, false);
+		        }
+			}
+		});
+		
 		JFileChooser fileChooser = new JFileChooser();
 
 		JButton btnLoadLstFile = new JButton("Load File...");
@@ -577,5 +588,6 @@ public class GUI_Simulation {
 
 	public void setTableRow(String text, int row) {
 		table.setValueAt(text, row, 2);
+		
 	}
 }
