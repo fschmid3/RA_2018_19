@@ -38,8 +38,9 @@ public class Control {
 		
 		ai = myParser.parseCode(fileContent);
 		if((register.getPc()<ai.length) && ( register.getPc() < myParser.getEndRow())) {
-			//System.out.println(ai[register.getPc()]);
+			System.out.println(ai[register.getPc()]);
 			int pc = register.getPc();
+			
 			myDec.decode(ai[pc]);
 			register.setPc(register.getPc()+1);
 			gui.setC(register.getC());

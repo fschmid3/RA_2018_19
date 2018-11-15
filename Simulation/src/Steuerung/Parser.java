@@ -49,6 +49,8 @@ public class Parser {
 			if(!codeBuffer.contains("    ")) {
 				aiBuffer[i] = Integer.parseInt(codeBuffer,16);
 				System.out.println(aiBuffer[i]+" "+i);
+			}else {
+				i--;
 			}
 		}
 		endRow = indexContent-1;

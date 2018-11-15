@@ -54,6 +54,7 @@ public class Operations {
 		int value = code & 0x00FF;
 		int result = value+register.getW();
 		register.setW(result);
+		System.out.println("result:"+result);
 		setC(result);
 		setZ(result);
 		setDC(value, result);
@@ -235,7 +236,7 @@ public class Operations {
 	
 	// returns and takes adress from stack
 	public void returnCommand() {
-		register.setPc(myStack.pop()-1);
+		register.setPc(myStack.pop());
 		
 	}
 	
