@@ -191,6 +191,7 @@ public class Befehlsdecoder {
 			//MOVWF
 			myOperations.movWF();
 		}else {
+			
 			maskedCode = code & 0x000F;
 			if(maskedCode==0x0000) {
 				//NOP
