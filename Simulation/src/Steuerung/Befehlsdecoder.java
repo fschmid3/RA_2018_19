@@ -107,8 +107,9 @@ public class Befehlsdecoder {
 		int maskedCode = code & 0x0F00;
 		switch(maskedCode) {
 		case 0x0000:
-			//MOVWF
-			myOperations.movWF();
+			//decide which twelfe bit statement
+			maskAllBitsCode();
+			
 			break;
 		case 0x0100:
 			if((code&0x0080)==0x0000) {
@@ -182,4 +183,39 @@ public class Befehlsdecoder {
 		}
 		
 	}
+	
+	
+	private void maskAllBitsCode() {
+		int maskedCode = code & 0x0080;
+		if(maskedCode == 0x0080) {
+			//MOVWF
+			myOperations.movWF();
+		}else {
+			maskedCode = code & 0x007F;
+			switch(maskedCode) {
+			case 0x0008:
+				//Return
+				myOperations.returnCommand();
+				break;
+			case 0x0009:
+				//RETFIE
+				System.out.println("Gibt doch Interrupts! In Befehlsdecoder maskAllBitsCode()");
+				break;
+			case 0x0063:
+				//SLEEP
+				myOperations.sleepCommand();
+				break;
+			case 0x0064:
+				//CLRWDT
+				System.out.println("Gibt doch CLRWDT! In Befehlsdecoder maskAllBitsCode()");
+				break;
+				default:
+					System.out.println("invalid code in maskForOrFiveBit");
+					break;
+			}
+			
+			
+		}
+	}
+	
 }

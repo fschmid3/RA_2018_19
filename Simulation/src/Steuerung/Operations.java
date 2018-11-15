@@ -50,6 +50,7 @@ public class Operations {
 
 	//adds value on w register
 	public void addLW(int code) {
+		System.out.println("I'm here");
 		int value = code & 0x00FF;
 		int result = value+register.getW();
 		register.setW(result);
@@ -84,7 +85,7 @@ public class Operations {
 	//sets PC on new value
 	public void goTo(int code) {
 		int adress = code & 0x07FF;
-		register.setPc(adress);
+		register.setPc(adress-1);
 		System.out.println("GOTO: "+adress);
 	}
 	
@@ -231,6 +232,19 @@ public class Operations {
 		}
 	}
 	
+	
+	// returns and takes adress from stack
+	public void returnCommand() {
+		register.setPc(myStack.pop()-1);
+		
+	}
+	
+	
+	// sleeps
+	public void sleepCommand() {
+		// not already impelemented 
+		System.out.println("sleep method in operations not already impelmented");
+	}
 	
 	
 	

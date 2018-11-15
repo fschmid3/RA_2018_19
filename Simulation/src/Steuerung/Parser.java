@@ -5,7 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Parser {
-
+	private int startRow;
+	private int endRow;
 
 	public String [] readFile(String path) throws IOException{	
 		FileReader fReader = null;
@@ -40,17 +41,27 @@ public class Parser {
 		
 		for(indexContent = 0; (!fileContent[indexContent].contains("start")) && (!fileContent[indexContent].contains("loop")); indexContent++) {}
 		indexContent++;
+		startRow=indexContent;
 		for(int i= 0;!fileContent[indexContent].contains("ende") && i < aiBuffer.length; indexContent++,i++) {
 			
 			codeBuffer = fileContent[indexContent].substring(5, 9);
-			//System.out.println(codeBuffer);
-			if(!codeBuffer.contains(" ")) {
+			//System.out.println("_"+codeBuffer+"_"+i);
+			if(!codeBuffer.contains("    ")) {
 				aiBuffer[i] = Integer.parseInt(codeBuffer,16);
 				System.out.println(aiBuffer[i]+" "+i);
 			}
 		}
+		endRow = indexContent-1;
 		
 		return aiBuffer;
+	}
+	
+	public int getStartRow() {
+		return startRow;
+	}
+	
+	public int getEndRow() {
+		return endRow;
 	}
 	
 	
