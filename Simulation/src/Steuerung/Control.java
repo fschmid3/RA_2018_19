@@ -8,7 +8,7 @@ import UserInterface.GUI_Simulation;
 public class Control {
 	GUI_Simulation gui;
 	Register register = new Register();
-	Parser myParser = new Parser();
+	Parser myParser;
 	Befehlsdecoder myDec = new Befehlsdecoder(register);
 	// = myParser.readFile("testfiles/TPicSim1.LST");
 	String[] fileContent;
@@ -25,6 +25,7 @@ public class Control {
 	
 	//calls all methods that are required for first initialition after file has been selected
 	public void fileOpened(String pPath) throws IOException {
+		myParser = new Parser();
 		setPath(pPath);
 		putFileContentInString();
 		setFileInTable();
