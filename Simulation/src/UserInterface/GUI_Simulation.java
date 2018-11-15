@@ -528,6 +528,7 @@ public class GUI_Simulation {
 					File selectedFile = fileChooser.getSelectedFile();
 					try {
 						strg.fileOpened(selectedFile.getAbsolutePath());
+						// delete content of old array in parser
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

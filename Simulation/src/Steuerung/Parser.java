@@ -34,13 +34,13 @@ public class Parser {
 
 		//String path = "testfiles/TPicSim1.LST";
 
-		int [] aiBuffer = new int [50];
+		int [] aiBuffer = new int [256];
 		String codeBuffer = null;
 		int indexContent;
 		
 		for(indexContent = 0; (!fileContent[indexContent].contains("start")) && (!fileContent[indexContent].contains("loop")); indexContent++) {}
 		indexContent++;
-		for(int i= 0;!fileContent[indexContent].contains("ende"); indexContent++,i++) {
+		for(int i= 0;!fileContent[indexContent].contains("ende") && i < aiBuffer.length; indexContent++,i++) {
 			
 			codeBuffer = fileContent[indexContent].substring(5, 9);
 			//System.out.println(codeBuffer);
