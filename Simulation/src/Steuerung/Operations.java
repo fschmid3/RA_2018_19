@@ -14,7 +14,7 @@ public class Operations {
 
 	//saves value in w register
 	public void movLW(int code) {
-		int value = code & 0x00FF;
+		byte value = (byte) (code & 0xFF);
 		register.setW(value);
 		System.out.println(register.getW());
 	}
@@ -22,7 +22,7 @@ public class Operations {
 	//does and on value and w register
 	public void andLW(int code) {
 		int value = code & 0x00FF;
-		int result = register.getW()&value;
+		byte result = (byte) (register.getW()&value);
 		register.setW(result);
 		setZ(result);
 		System.out.println(register.getW());
@@ -31,7 +31,7 @@ public class Operations {
 	//does or on value and w register
 	public void iorLW(int code) {
 		int value = code & 0x00FF;
-		int result = register.getW()|value;
+		byte result = (byte) (register.getW()|value);
 		register.setW(result);
 		setZ(result);
 		System.out.println(register.getW());
@@ -40,7 +40,7 @@ public class Operations {
 	//subtracts w register from value
 	public void subLW(int code) {
 		int value = code & 0x00FF;
-		int result = value-register.getW();
+		byte result = (byte) (value-register.getW());
 		int oldW = register.getW();
 		register.setW(result);
 		setC(result);
@@ -54,7 +54,7 @@ public class Operations {
 		System.out.println("I'm here");
 		int oldW = register.getW();
 		int value = code & 0x00FF;
-		int result = value+register.getW();
+		byte result = (byte) (value+register.getW());
 		register.setW(result);
 		System.out.println("result:"+result);
 		setC(result);
@@ -67,7 +67,7 @@ public class Operations {
 	public void xorLW(int code) {
 		int oldW = register.getW();
 		int value = code & 0x00FF;
-		int result = register.getW()^value;
+		byte result = (byte) (register.getW()^value);
 		register.setW(result);
 		setC(result);
 		setZ(result);
@@ -78,7 +78,7 @@ public class Operations {
 
 	//sets w on value and puts latest stackadress in PC
 	public void retLW(int code) {
-		int value = code & 0x03FF;
+		byte value = (byte) (code & 0x03FF);
 		register.setW(value);
 		register.setPc(myStack.pop());		//loads pc with saved adress on top of stack
 		System.out.println(register.getW());
@@ -112,7 +112,7 @@ public class Operations {
 
 	//clears W
 	public void clrW() {
-		register.setW(0);
+		register.setW((byte) 0);
 		setZ(0);
 	}
 
@@ -232,7 +232,7 @@ public class Operations {
 	private void saveInFOrWBasedOnD(int code, int value) {
 		int masked = code & 0x0080;
 		if(masked==0) {
-			register.setW(value);
+			register.setW((byte) value);
 		}else {
 			register.setF(value);
 		}

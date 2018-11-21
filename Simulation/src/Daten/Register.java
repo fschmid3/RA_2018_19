@@ -2,7 +2,7 @@ package Daten;
 
 public class Register {
 	private int fsr = 0; 
-	private int w = 0;
+	private byte w = 0;
 	private int status = 0;
 	private int instruction = 0;
 	private int pc = 0;					//Programm counter
@@ -53,7 +53,7 @@ public class Register {
 	public int getW() {
 		return w;
 	}
-	public void setW(int w) {
+	public void setW(byte w) {
 		this.w = w;
 	}
 	public int getStatus() {
