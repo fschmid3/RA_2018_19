@@ -49,6 +49,7 @@ public class Control {
 			gui.setW(register.getW());
 			gui.setZ(register.getZ());
 			gui.setSelection(pc + myParser.getStartRow(), 2);
+			System.out.println("f: "+register.getF());
 		}
 	}
 	

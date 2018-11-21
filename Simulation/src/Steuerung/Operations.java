@@ -41,34 +41,37 @@ public class Operations {
 	public void subLW(int code) {
 		int value = code & 0x00FF;
 		int result = value-register.getW();
+		int oldW = register.getW();
 		register.setW(result);
 		setC(result);
 		setZ(result);
-		setDC(value, result);
+		setDC(oldW, result);
 		System.out.println(register.getW());
 	}
 
 	//adds value on w register
 	public void addLW(int code) {
 		System.out.println("I'm here");
+		int oldW = register.getW();
 		int value = code & 0x00FF;
 		int result = value+register.getW();
 		register.setW(result);
 		System.out.println("result:"+result);
 		setC(result);
 		setZ(result);
-		setDC(value, result);
+		setDC(oldW, result);
 		System.out.println(register.getW());
 	}
 
 	//does xor on value and w register
 	public void xorLW(int code) {
+		int oldW = register.getW();
 		int value = code & 0x00FF;
 		int result = register.getW()^value;
 		register.setW(result);
 		setC(result);
 		setZ(result);
-		setDC(value, result);
+		setDC(oldW, result);
 		System.out.println(register.getW());
 	}
 
@@ -115,11 +118,12 @@ public class Operations {
 
 	//Subtracts W from F
 	public void subWF(int code) {
+		int oldW = register.getW();
 		int value =  register.getF()-register.getW();
 		saveInFOrWBasedOnD(code, value);
 		setZ(value);
 		setC(value);
-		setDC(code&0x007F, value);
+		setDC(oldW, value);
 	}
 
 	//decrements F
@@ -152,11 +156,12 @@ public class Operations {
 	
 	//adds w and f
 	public void addWF(int code) {
+		int oldW = register.getW();
 		int value =  register.getF()+register.getW();
 		saveInFOrWBasedOnD(code, value);
 		setZ(value);
 		setC(value);
-		setDC(code&0x007F, value);
+		setDC(oldW, value);
 	}
 	
 	//moves f
@@ -168,7 +173,7 @@ public class Operations {
 	
 	//complements f
 	public void comF(int code) {
-		int value =  ~register.getF();
+		int value =  ~(register.getF());
 		saveInFOrWBasedOnD(code, value);
 		setZ(value);
 	}
@@ -273,11 +278,14 @@ public class Operations {
 	private void setDC(int value, int result) {
 		int maskedValue = value & 0x0010;
 		int maskedResult = result & 0x0010;
-		if (maskedValue != maskedResult) {
+		if (maskedValue < maskedResult) {
 			register.setDc(1);
 		}else {
-			register.setC(0);
+			register.setDc(0);
 		}
 	}
+	
+	
+	
 	
 }

@@ -114,10 +114,10 @@ public class Befehlsdecoder {
 		case 0x0100:
 			if((code&0x0080)==0x0000) {
 				//CLRF
-				myOperations.clrF();
+				myOperations.clrW();
 			}else {
 				//CLRW
-				myOperations.clrW();
+				myOperations.clrF();
 			}
 			break;
 		case 0x0200:
