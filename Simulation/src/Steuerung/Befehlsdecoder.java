@@ -117,7 +117,7 @@ public class Befehlsdecoder {
 				myOperations.clrW();
 			}else {
 				//CLRW
-				myOperations.clrF();
+				myOperations.clrF(code);
 			}
 			break;
 		case 0x0200:
@@ -189,7 +189,7 @@ public class Befehlsdecoder {
 		int maskedCode = code & 0x0080;
 		if(maskedCode == 0x0080) {
 			//MOVWF
-			myOperations.movWF();
+			myOperations.movWF(code);
 		}else {
 			
 			maskedCode = code & 0x000F;

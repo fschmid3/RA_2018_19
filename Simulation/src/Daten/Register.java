@@ -2,7 +2,7 @@ package Daten;
 
 public class Register {
 	private int fsr = 0; 
-	private byte w = 0;
+	private int w = 0;
 	private int status = 0;
 	private int instruction = 0;
 	private int pc = 0;					//Programm counter
@@ -14,6 +14,8 @@ public class Register {
 	private int portA;					//Port A
 	private int portB;					//Port B
 	
+	private int[] ram = new int[70];
+	
 	
 
 	// getter and setter for all registers
@@ -24,6 +26,14 @@ public class Register {
 	public void setF(int f) {
 		this.f = f;
 	}
+	
+	public int getRamContent(int adress) {
+		return ram[adress-0x0C];
+	}
+	public void setRamContent(int adress, int value) {
+		ram[adress-0x0C] = value;
+	}
+	
 	public int getC() {
 		return c;
 	}
@@ -53,7 +63,7 @@ public class Register {
 	public int getW() {
 		return w;
 	}
-	public void setW(byte w) {
+	public void setW(int w) {
 		this.w = w;
 	}
 	public int getStatus() {

@@ -14,7 +14,7 @@ public class Operations {
 
 	//saves value in w register
 	public void movLW(int code) {
-		byte value = (byte) (code & 0xFF);
+		int value = code & 0xFF;
 		register.setW(value);
 		System.out.println(register.getW());
 	}
@@ -22,7 +22,7 @@ public class Operations {
 	//does and on value and w register
 	public void andLW(int code) {
 		int value = code & 0x00FF;
-		byte result = (byte) (register.getW()&value);
+		int result = register.getW()&value;
 		register.setW(result);
 		setZ(result);
 		System.out.println(register.getW());
@@ -31,7 +31,7 @@ public class Operations {
 	//does or on value and w register
 	public void iorLW(int code) {
 		int value = code & 0x00FF;
-		byte result = (byte) (register.getW()|value);
+		int result = register.getW()|value;
 		register.setW(result);
 		setZ(result);
 		System.out.println(register.getW());
@@ -40,12 +40,12 @@ public class Operations {
 	//subtracts w register from value
 	public void subLW(int code) {
 		int value = code & 0x00FF;
-		byte result = (byte) (value-register.getW());
+		int result = (value+(((~register.getW())&255)+1));
 		int oldW = register.getW();
 		register.setW(result);
 		setC(result);
 		setZ(result);
-		setDC(oldW, result);
+		setDC(oldW, value);
 		System.out.println(register.getW());
 	}
 
@@ -54,31 +54,28 @@ public class Operations {
 		System.out.println("I'm here");
 		int oldW = register.getW();
 		int value = code & 0x00FF;
-		byte result = (byte) (value+register.getW());
+		int result = (value+register.getW());
 		register.setW(result);
 		System.out.println("result:"+result);
 		setC(result);
 		setZ(result);
-		setDC(oldW, result);
+		setDC(oldW, value);
 		System.out.println(register.getW());
 	}
 
 	//does xor on value and w register
 	public void xorLW(int code) {
-		int oldW = register.getW();
 		int value = code & 0x00FF;
-		byte result = (byte) (register.getW()^value);
+		int result = (register.getW()^value);
 		register.setW(result);
-		setC(result);
 		setZ(result);
-		setDC(oldW, result);
 		System.out.println(register.getW());
 	}
 
 
 	//sets w on value and puts latest stackadress in PC
 	public void retLW(int code) {
-		byte value = (byte) (code & 0x03FF);
+		int value = code & 0x03FF;
 		register.setW(value);
 		register.setPc(myStack.pop());		//loads pc with saved adress on top of stack
 		System.out.println(register.getW());
@@ -100,128 +97,156 @@ public class Operations {
 
 	
 	//moves w in f
-	public void movWF() {
-		register.setF(register.getW());
+	public void movWF(int code) {
+		register.setRamContent(code&0x7F, register.getW());
 	}
 	
 	//clears F
-	public void clrF() {
-		register.setF(0);
+	public void clrF(int code) {
+		register.setRamContent(code&0x7F, 0);
 		setZ(0);
 	}
 
 	//clears W
 	public void clrW() {
-		register.setW((byte) 0);
+		register.setW(0);
 		setZ(0);
 	}
 
 	//Subtracts W from F
 	public void subWF(int code) {
 		int oldW = register.getW();
-		int value =  register.getF()-register.getW();
-		saveInFOrWBasedOnD(code, value);
+		int value =  register.getRamContent(code&0x7F)+(((~register.getW())&255)+1);
 		setZ(value);
 		setC(value);
-		setDC(oldW, value);
+		setDC(oldW, register.getRamContent(code&0x7F));
+		System.out.println("wert:" + register.getRamContent(code&0x7F) + ",");
+		saveInFOrWBasedOnD(code, value);
 	}
 
 	//decrements F
 	public void decF(int code) {
-		int value =  register.getF()-1;
-		saveInFOrWBasedOnD(code, value);
+		int value =  register.getRamContent(code&0x7F)-1;
+		if(value<0) {
+			value = 255;
+		}
 		setZ(value);
+		saveInFOrWBasedOnD(code, value);
 	}
 
 	//inclusive or w with f
 	public void iorWF(int code) {
-		int value =  register.getF()|register.getW();
-		saveInFOrWBasedOnD(code, value);
+		int value =  register.getRamContent(code&0x7F)|register.getW();
 		setZ(value);
+		saveInFOrWBasedOnD(code, value);
 	}
 
 	//and or w with f
 	public void andWF(int code) {
-		int value = register.getF()&register.getW();
-		saveInFOrWBasedOnD(code, value);
+		int value = register.getRamContent(code&0x7F)&register.getW();
 		setZ(value);
+		saveInFOrWBasedOnD(code, value);
 	}
 
 	//exclusive or w with f
 	public void xorWF(int code) {
-		int value =  register.getF()^register.getW();
-		saveInFOrWBasedOnD(code, value);
+		int value =  register.getRamContent(code&0x7F)^register.getW();
 		setZ(value);
+		saveInFOrWBasedOnD(code, value);
 	}
 	
 	//adds w and f
 	public void addWF(int code) {
 		int oldW = register.getW();
-		int value =  register.getF()+register.getW();
-		saveInFOrWBasedOnD(code, value);
+		int value =  register.getRamContent(code&0x7F)+register.getW();
+		setDC(oldW, register.getRamContent(code&0x7F));
 		setZ(value);
 		setC(value);
-		setDC(oldW, value);
+		saveInFOrWBasedOnD(code, value&0xFF);
 	}
 	
 	//moves f
 	public void movF(int code) {
-		int value =  register.getF();
-		saveInFOrWBasedOnD(code, value);
+		int value =  register.getRamContent(code&0x7F);
 		setZ(value);
+		saveInFOrWBasedOnD(code, value);
 	}
 	
 	//complements f
 	public void comF(int code) {
-		int value =  ~(register.getF());
-		saveInFOrWBasedOnD(code, value);
+		int value =  (~(register.getRamContent(code&0x7F)))&255;
 		setZ(value);
+		saveInFOrWBasedOnD(code, value);
 	}
 	
 	//increments f
 	public void incF(int code) {
-		int value =  register.getF()+1;
-		saveInFOrWBasedOnD(code, value);
+		int value =  register.getRamContent(code&0x7F)+1;
 		setZ(value);
+		saveInFOrWBasedOnD(code, value);
 	}
 	
 	//decrements f if not 0
 	public void decFSZ(int code) {
-		int value =  register.getF()-1;
-		if(register.getF()!=0) {
-			saveInFOrWBasedOnD(code, value);
+		int value =  register.getRamContent(code&0x7F)-1;
+		if(register.getRamContent(code&0x7F)!=0) {
 			setZ(value);
+			saveInFOrWBasedOnD(code, value);
+		}
+		if(value==0) {
+			register.setPc(register.getPc()+1);
 		}
 	}
 	
 	//rotates f right
 	public void rrF(int code) {
-		int value =  Integer.rotateRight(register.getF(), 1);
+		int f = register.getRamContent(code&0x7F);
+		int value =  Integer.rotateRight(f, 1);
+		value = value&0x007F;
+		if (register.getC()==1) {
+			value+=0x80;
+			register.setC(0);
+		}
+		if ((f&0x0001)==0x0001) {
+			register.setC(1);
+		}
 		saveInFOrWBasedOnD(code, value);
-		setC(value);
 	}
 	
 	//rotates f left
 	public void rlF(int code) {
-		int value =  Integer.rotateLeft(register.getF(), 1);
+		System.out.println("code: "+code);
+		int f = register.getRamContent(code&0x7F);
+		int value =  Integer.rotateLeft(f, 1);
+		value = value&0x00FF;
+		if (register.getC()==1) {
+			value++;
+			register.setC(0);
+		}
+		if ((f&0x0080)==0x0080) {
+			register.setC(1);
+		}
 		saveInFOrWBasedOnD(code, value);
-		setC(value);
 	}
 	
 	//swaps high and low nibble of f
 	public void swapF(int code) {
-		int contentF = register.getF();
+		int contentF = register.getRamContent(code&0x7F);
 		int tempHighNibble = contentF & 0x00F0;
 		int tempLowNibble = contentF & 0x000F;
 		contentF = Integer.rotateRight(tempHighNibble, 4) + Integer.rotateLeft(tempLowNibble, 4);
-		saveInFOrWBasedOnD(code, contentF);
 		setZ(contentF);
+		saveInFOrWBasedOnD(code, contentF);
 	}
 	
 	//increments f if not 0
 	public void incFSZ(int code) {
-		if(register.getF()!=0) {
-			saveInFOrWBasedOnD(code, register.getF()+1);
+		if(register.getRamContent(code&0x7F)!=0) {
+			saveInFOrWBasedOnD(code, register.getRamContent(code&0x7F)+1);
+		}
+
+		if(register.getRamContent(code&0x7F)==0) {
+			register.setPc(register.getPc()+1);
 		}
 	}
 	
@@ -231,10 +256,12 @@ public class Operations {
 	//decides depending on d, whether to save in W or F
 	private void saveInFOrWBasedOnD(int code, int value) {
 		int masked = code & 0x0080;
+		value = value&255;
+		
 		if(masked==0) {
-			register.setW((byte) value);
+			register.setW(value);
 		}else {
-			register.setF(value);
+			register.setRamContent(code&0x7F, value);
 		}
 	}
 	
@@ -267,25 +294,24 @@ public class Operations {
 	}
 
 	private void setC(int result) {
-		if (result > 256) {
+		if (result > 255) {
 			register.setC(1);
+			register.setW(result-256);
 		}else {
 			register.setC(0);
 		}
 	}
 
 
-	private void setDC(int value, int result) {
-		int maskedValue = value & 0x0010;
-		int maskedResult = result & 0x0010;
-		if (maskedValue < maskedResult) {
+	private void setDC(int value, int oldF) {
+		int maskedValue = value & 0x0F;
+		int maskedF = oldF & 0x0F;
+		if (maskedValue+maskedF > 15) {
 			register.setDc(1);
 		}else {
 			register.setDc(0);
 		}
 	}
-	
-	
 	
 	
 }
