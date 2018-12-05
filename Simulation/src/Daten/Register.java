@@ -2,6 +2,7 @@ package Daten;
 
 public class Register {
 	private int fsr = 0; 
+	private int pcl = 0;
 	private int w = 0;
 	private int status = 0;
 	private int instruction = 0;
@@ -11,8 +12,10 @@ public class Register {
 	private int dc = 0; 				//digit-carry-Flag
 	private int z = 0;					//zero-Flag
 	private int f = 0; 
-	private int portA;					//Port A
-	private int portB;					//Port B
+	private int portA = 0;					//Port A
+	private int portB = 0;					//Port B
+	private int pcLatch = 0;
+	private int indirect = 0;
 	
 	private int[] ram = new int[70];
 	
@@ -28,10 +31,71 @@ public class Register {
 	}
 	
 	public int getRamContent(int adress) {
-		return ram[adress-0x0C];
+		int returnValue = 0;
+		if(adress<0x0C) {
+			switch(adress) {
+			case 0:
+				returnValue = ram[indirect];
+				System.out.println("Indirect adressing!");
+				break;
+			case 2:
+				returnValue = pcl;
+				break;
+			case 3:
+				returnValue = status;
+				break;
+			case 4:
+				returnValue = fsr;
+				break;
+			case 5:
+				returnValue = portA;
+				break;
+			case 6:
+				returnValue = portB;
+				break;
+			case 10:
+				returnValue = pcLatch;
+				break;
+				default:
+					System.out.println("In register method setRamContent() register setting not already implemented");
+			}
+		}else {
+			returnValue = ram[adress-0x0C];
+		}
+		return returnValue;
 	}
+	
+	
 	public void setRamContent(int adress, int value) {
-		ram[adress-0x0C] = value;
+		if(adress<0x0C) {
+			switch(adress) {
+			case 0:
+				indirect = value;
+				break;
+			case 2:
+				pcl = value;
+				break;
+			case 3:
+				status = value;
+				break;
+			case 4:
+				fsr = value;
+				break;
+			case 5:
+				portA = value;
+				break;
+			case 6:
+				portB = value;
+				break;
+			case 10:
+				pcLatch = value;
+				break;
+				default:
+					System.out.println("In register method setRamContent() register setting not already implemented");
+			}
+		}else {
+			ram[adress-0x0C] = value;
+		}
 	}
 	
 	public int getC() {
@@ -101,6 +165,18 @@ public class Register {
 	}
 	public void setPortB(int portB) {
 		this.portB = portB;
+	}
+	public int getPcl() {
+		return pcl;
+	}
+	public void setPcl(int pcl) {
+		this.pcl = pcl;
+	}
+	public int getPcLatch() {
+		return pcLatch;
+	}
+	public void setPcLatch(int pcLatch) {
+		this.pcLatch = pcLatch;
 	}
 	
 	

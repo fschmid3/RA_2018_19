@@ -43,14 +43,24 @@ public class Control {
 			
 			myDec.decode(ai[pc]);
 			register.setPc(register.getPc()+1);
-			gui.setC(register.getC());
-			gui.setDC(register.getDc());
-			gui.setPC(register.getPc());
-			gui.setW(register.getW());
-			gui.setZ(register.getZ());
+			updateGUI();
 			gui.setSelection(pc + myParser.getStartRow(), 2);
-			System.out.println("f: "+register.getF());
+			System.out.println("wert1: "+register.getRamContent(0x0C));
+			System.out.println("wert2: "+register.getRamContent(0x0D));
 		}
+	}
+	
+	
+	private void updateGUI() {
+		gui.setC(register.getC());
+		gui.setDC(register.getDc());
+		gui.setPC(register.getPc());
+		gui.setW(register.getW());
+		gui.setZ(register.getZ());
+		gui.setFSR(register.getFsr());
+		gui.setPCL(register.getPcl());
+		gui.setPCLATCH(register.getPcLatch());
+		gui.setStatus(register.getStatus());		
 	}
 	
 	//decodes ALL lines of assembler code

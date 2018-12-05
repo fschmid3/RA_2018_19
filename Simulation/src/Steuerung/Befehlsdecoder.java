@@ -24,8 +24,11 @@ public class Befehlsdecoder {
 			
 		case 0x2000: maskOneBit();		//0x2000 -> one bit statement
 		break;
+
+		case 0x1000: maskTwoBit();
+		break;
 		
-		case 0x0000: maskForOrFiveBit();
+		case 0x0000: maskFourOrFiveBit();
 		break;
 
 		default:
@@ -103,7 +106,7 @@ public class Befehlsdecoder {
 	
 	
 	// decides, whether code is for CALL or GOTO statement and calls relevant methods
-	private void maskForOrFiveBit() {
+	private void maskFourOrFiveBit() {
 		int maskedCode = code & 0x0F00;
 		switch(maskedCode) {
 		case 0x0000:
@@ -220,6 +223,34 @@ public class Befehlsdecoder {
 				}
 			}
 		}
+	}
+	
+	
+	// decides, which Bit-Oriented Operation is to be called
+	private void maskTwoBit() {
+		int maskedCode = code & 0x0C00;
+		switch(maskedCode) {
+		case 0x0000:
+			//BCF
+			myOperations.bcf(code);
+			break;
+		case 0x0400:
+			//BSF
+			myOperations.bsf(code);
+			break;
+		case 0x0800:
+			//BTFSC
+			myOperations.btfsc(code);
+			break;
+		case 0x0C00:
+			//BTFSS
+			myOperations.btfss(code);
+			break;
+			default:
+				System.out.println("invalid code in maskTwoBit");
+				break;
+		}
+		
 	}
 	
 }

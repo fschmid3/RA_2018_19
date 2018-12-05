@@ -16,7 +16,7 @@ public class Operations {
 	public void movLW(int code) {
 		int value = code & 0xFF;
 		register.setW(value);
-		System.out.println(register.getW());
+		//System.out.println(register.getW());
 	}
 
 	//does and on value and w register
@@ -25,7 +25,7 @@ public class Operations {
 		int result = register.getW()&value;
 		register.setW(result);
 		setZ(result);
-		System.out.println(register.getW());
+		//System.out.println(register.getW());
 	}
 
 	//does or on value and w register
@@ -34,7 +34,7 @@ public class Operations {
 		int result = register.getW()|value;
 		register.setW(result);
 		setZ(result);
-		System.out.println(register.getW());
+		//System.out.println(register.getW());
 	}
 
 	//subtracts w register from value
@@ -46,7 +46,7 @@ public class Operations {
 		setC(result);
 		setZ(result);
 		setDC(oldW, value);
-		System.out.println(register.getW());
+		//System.out.println(register.getW());
 	}
 
 	//adds value on w register
@@ -55,12 +55,12 @@ public class Operations {
 		int oldW = register.getW();
 		int value = code & 0x00FF;
 		int result = (value+register.getW());
-		register.setW(result);
+		//register.setW(result);
 		System.out.println("result:"+result);
 		setC(result);
 		setZ(result);
 		setDC(oldW, value);
-		System.out.println(register.getW());
+		//System.out.println(register.getW());
 	}
 
 	//does xor on value and w register
@@ -69,7 +69,7 @@ public class Operations {
 		int result = (register.getW()^value);
 		register.setW(result);
 		setZ(result);
-		System.out.println(register.getW());
+		//System.out.println(register.getW());
 	}
 
 
@@ -78,7 +78,7 @@ public class Operations {
 		int value = code & 0x03FF;
 		register.setW(value);
 		register.setPc(myStack.pop());		//loads pc with saved adress on top of stack
-		System.out.println(register.getW());
+		//System.out.println(register.getW());
 	}
 
 	
@@ -252,18 +252,7 @@ public class Operations {
 	
 	
 	
-	
-	//decides depending on d, whether to save in W or F
-	private void saveInFOrWBasedOnD(int code, int value) {
-		int masked = code & 0x0080;
-		value = value&255;
-		
-		if(masked==0) {
-			register.setW(value);
-		}else {
-			register.setRamContent(code&0x7F, value);
-		}
-	}
+
 	
 	
 	// returns and takes adress from stack
@@ -281,6 +270,75 @@ public class Operations {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	//Bit oriented file register operations
+	//clears one bit in F
+	public void bcf(int code) {
+		int mask = getMaskForSlectingOneBit(code);
+		mask =  ~mask;
+		register.setRamContent(code&0x007F, register.getRamContent(code&0x007F)&mask);
+	}
+	
+	
+	//sets one bit in F
+	public void bsf(int code) {
+		int mask = getMaskForSlectingOneBit(code);
+		register.setRamContent(code&0x007F, register.getRamContent(code&0x007F)|mask);
+	}
+	
+	
+	
+	//skip if bit in F is not set
+	public void btfsc(int code) {
+		int mask = getMaskForSlectingOneBit(code);
+		if((register.getRamContent(code&0x007F)&mask)==0) {
+			register.setPc(register.getPc()+1);
+		}
+	}
+
+	
+	//skip if bit in F is set
+	public void btfss(int code) {
+		int mask = getMaskForSlectingOneBit(code);
+		if((register.getRamContent(code&0x007F)&mask)>0) {
+			register.setPc(register.getPc()+1);
+		}
+	}
+	
+	private int getMaskForSlectingOneBit(int code) {
+		int whichBit = code & 0x0380;
+		whichBit = Integer.rotateRight(whichBit, 7);
+		int shift = 0x0001;
+		int mask = shift<<=whichBit;
+		
+		return mask;
+	}
+	//End Bit oriented file register operations
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//decides depending on d, whether to save in W or F
+	private void saveInFOrWBasedOnD(int code, int value) {
+		int masked = code & 0x0080;
+		value = value&255;
+		
+		if(masked==0) {
+			register.setW(value);
+		}else {
+			register.setRamContent(code&0x7F, value);
+		}
+	}
 	
 	
 	
