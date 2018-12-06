@@ -44,7 +44,7 @@ public class Control {
 			myDec.decode(ai[pc]);
 			register.setPc(register.getPc()+1);
 			updateGUI();
-			gui.setSelection(pc + myParser.getStartRow(), 2);
+			
 			System.out.println("wert1: "+register.getRamContent(0x0C));
 			System.out.println("wert2: "+register.getRamContent(0x0D));
 		}
@@ -52,6 +52,7 @@ public class Control {
 	
 	
 	private void updateGUI() {
+		gui.setSelection(myParser.getStartRow(),myParser.getEndRow(), register.getPc());
 		gui.setC(register.getC());
 		gui.setDC(register.getDc());
 		gui.setPC(register.getPc());

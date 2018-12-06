@@ -532,7 +532,7 @@ public class GUI_Simulation {
 		JButton btnLoadLstFile = new JButton("Load File...");
 		btnLoadLstFile.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				fileChooser.setCurrentDirectory(new File("."));
+				fileChooser.setCurrentDirectory(new File("./testfiles"));
 				JFrame openFrame = new JFrame("open...");
 				int result = fileChooser.showOpenDialog(openFrame);
 				if (result == JFileChooser.APPROVE_OPTION) {
@@ -592,9 +592,26 @@ public class GUI_Simulation {
 		
 	}
 	
-	public void setSelection(int row, int col) {
+	public void setSelection(int startRow, int endRow, int pc) {
+		
+		int value = 0;
+		int index = startRow ;
+		String sub;// = table.getModel().getValueAt(startRow, 2).toString().substring(0, 4);
+		
+		while ((value != pc) && (index < endRow) ) {
+			
+			sub = table.getModel().getValueAt(index, 2).toString().substring(0, 4);
+			if (!sub.contains(" ")) {
+				value = Integer.parseInt(sub, 16);
+			}
+			else {
+				value = 0;
+			}
+			
+			index++;
+			
+		}
 		table.setCellSelectionEnabled(true);
-		table.changeSelection(row-1, col, true, false);
-		table.changeSelection(row, col, true, false);
+		table.changeSelection(index - 1, 2, false, false);
 	}
 }
