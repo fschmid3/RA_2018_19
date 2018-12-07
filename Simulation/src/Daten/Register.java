@@ -35,8 +35,9 @@ public class Register {
 		if(adress<0x0C) {
 			switch(adress) {
 			case 0:
+				System.out.println("in reg indirect: "+indirect);
+				System.out.println("Inhalt indirekter Adresse: "+ram[indirect]);
 				returnValue = ram[indirect];
-				System.out.println("Indirect adressing!");
 				break;
 			case 2:
 				returnValue = pcl;
