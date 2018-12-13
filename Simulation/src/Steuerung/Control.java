@@ -61,7 +61,11 @@ public class Control {
 		gui.setFSR(register.getFsr());
 		gui.setPCL(register.getPcl());
 		gui.setPCLATCH(register.getPcLatch());
-		gui.setStatus(register.getStatus());		
+		gui.setPD(register.getPdBar());		
+		gui.setTO(register.getToBar());		
+		gui.setRP0(register.getRp0());		
+		gui.setRP1(register.getRp1());		
+		gui.setIRP(register.getIrp());		
 	}
 	
 	//decodes ALL lines of assembler code

@@ -34,7 +34,7 @@ public class Befehlsdecoder {
 		default:
 			break; 
 		}
-		
+		myOperations.incrementTimer0();
 	}
 	
 

@@ -87,6 +87,7 @@ public class Operations {
 	public void goTo(int code) {
 		int adress = code & 0x07FF;
 		register.setPc(adress-1);
+		incrementTimer0();
 		System.out.println("GOTO: "+adress);
 	}
 	
@@ -258,6 +259,7 @@ public class Operations {
 	// returns and takes adress from stack
 	public void returnCommand() {
 		register.setPc(myStack.pop());
+		incrementTimer0();
 		
 	}
 	
@@ -322,6 +324,14 @@ public class Operations {
 	
 	
 	
+	public void incrementTimer0() {
+		if(register.getTimer0()+1 > 255) {
+			register.setTimer0(0);
+			register.setIntcon(0x04);
+		}else {
+			register.setTimer0(register.getTimer0()+1);
+		}
+	}
 	
 	
 	
@@ -339,6 +349,7 @@ public class Operations {
 			register.setRamContent(code&0x7F, value);
 		}
 	}
+	
 	
 	
 	

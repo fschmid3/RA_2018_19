@@ -4,7 +4,12 @@ public class Register {
 	private int fsr = 0; 
 	private int pcl = 0;
 	private int w = 0;
-	private int status = 0;
+	private int status = 0x18;
+	private int pdBar = 1;
+	private int toBar = 1;
+	private int rp0 = 0;
+	private int rp1 = 0;
+	private int irp = 0;
 	private int instruction = 0;
 	private int pc = 0;					//Programm counter
 	private int gernalPurpReg = 0;
@@ -16,8 +21,13 @@ public class Register {
 	private int portB = 0;					//Port B
 	private int pcLatch = 0;
 	private int indirect = 0;
+	private int timer0 = 0;
+	private int intcon = 0;
+	private int trisA = 0x1F;
+	private int trisB = 0xFF;
 	
-	private int[] ram = new int[70];
+	
+	private int[] ram = new int[195];
 	
 	
 
@@ -43,7 +53,7 @@ public class Register {
 				returnValue = pcl;
 				break;
 			case 3:
-				returnValue = status;
+				returnValue = getStatus();
 				break;
 			case 4:
 				returnValue = fsr;
@@ -77,7 +87,7 @@ public class Register {
 				pcl = value;
 				break;
 			case 3:
-				status = value;
+				setStatus(value);
 				break;
 			case 4:
 				fsr = value;
@@ -133,11 +143,21 @@ public class Register {
 		this.w = w;
 	}
 	public int getStatus() {
-		return status;
+		return c+dc*2+z*4+pdBar*8+toBar*16+rp0*32+rp1*64+irp*128;
 	}
+	
 	public void setStatus(int status) {
 		this.status = status;
+		this.setC(status&0x01);
+		this.setDc((status&0x02)/2);
+		this.setZ((status&0x04)/4);
+		this.setPdBar((status&0x08)/8);
+		this.setToBar((status&0x10)/16);
+		this.setRp0((status&0x20)/32);
+		this.setRp1((status&0x40)/64);
+		this.setIrp((status&0x80)/128);
 	}
+	
 	public int getInstruction() {
 		return instruction;
 	}
@@ -179,6 +199,60 @@ public class Register {
 	}
 	public void setPcLatch(int pcLatch) {
 		this.pcLatch = pcLatch;
+	}
+	public int getTimer0() {
+		return timer0;
+	}
+	public void setTimer0(int timer0) {
+		this.timer0 = timer0;
+	}
+	public int getIntcon() {
+		return intcon;
+	}
+	public void setIntcon(int intcon) {
+		this.intcon = intcon;
+	}
+	public int getTrisA() {
+		return trisA;
+	}
+	public void setTrisA(int trisA) {
+		this.trisA = trisA;
+	}
+	public int getTrisB() {
+		return trisB;
+	}
+	public void setTrisB(int trisB) {
+		this.trisB = trisB;
+	}
+	public int getPdBar() {
+		return pdBar;
+	}
+	public void setPdBar(int pdBar) {
+		this.pdBar = pdBar;
+	}
+	public int getToBar() {
+		return toBar;
+	}
+	public void setToBar(int toBar) {
+		this.toBar = toBar;
+	}
+	public int getRp0() {
+		return rp0;
+	}
+	public void setRp0(int rp0) {
+		this.rp0 = rp0;
+	}
+	public int getRp1() {
+		return rp1;
+	}
+	public void setRp1(int rp1) {
+		this.rp1 = rp1;
+	}
+	public int getIrp() {
+		return irp;
+	}
+	public void setIrp(int irp) {
+		this.irp = irp;
 	}
 	
 	

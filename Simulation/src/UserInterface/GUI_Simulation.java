@@ -33,7 +33,7 @@ public class GUI_Simulation {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JTextField textField_6;
-	private JTextField textField_7;
+	private JTextField txtPD;
 	private JTextField textField_8;
 	private JTextField textField_9;
 	private JTextField textField_10;
@@ -54,6 +54,13 @@ public class GUI_Simulation {
 	private JTextField textField_25;
 	private JTable table;
 	private Control strg;
+	private JTextField timer_txt;
+	private JTextField intcon_txt;
+	private JTextField optionReg_txt;
+	private JTextField txtTO;
+	private JTextField txtRP0;
+	private JTextField txtRP1;
+	private JTextField txtIRP;
 
 	/**
 	 * Launch the application.
@@ -102,6 +109,90 @@ public class GUI_Simulation {
 				switchBit(textField_1);
 			}
 		});
+		
+				JLabel lblC = new JLabel("C");
+				lblC.setBounds(545, 574, 20, 16);
+				frame.getContentPane().add(lblC);
+		
+		JLabel lblRp = new JLabel("RP0");
+		lblRp.setBounds(431, 574, 30, 16);
+		frame.getContentPane().add(lblRp);
+		
+				JLabel lblZ = new JLabel("Z");
+				lblZ.setBounds(499, 574, 20, 16);
+				frame.getContentPane().add(lblZ);
+		
+				textField_10 = new JTextField();
+				textField_10.setEditable(false);
+				textField_10.setColumns(10);
+				textField_10.setBounds(541, 600, 20, 22);
+				frame.getContentPane().add(textField_10);
+		
+		JLabel lblpd = new JLabel("!PD");
+		lblpd.setBounds(475, 574, 20, 16);
+		frame.getContentPane().add(lblpd);
+		
+		JLabel lblto = new JLabel("!TO");
+		lblto.setBounds(453, 574, 30, 16);
+		frame.getContentPane().add(lblto);
+		
+				txtPD = new JTextField();
+				txtPD.setEditable(false);
+				txtPD.setColumns(10);
+				txtPD.setBounds(475, 600, 20, 22);
+				frame.getContentPane().add(txtPD);
+		
+		txtTO = new JTextField();
+		txtTO.setEditable(false);
+		txtTO.setColumns(10);
+		txtTO.setBounds(453, 600, 20, 22);
+		frame.getContentPane().add(txtTO);
+		
+		JLabel lblIrp = new JLabel("IRP");
+		lblIrp.setBounds(387, 574, 20, 16);
+		frame.getContentPane().add(lblIrp);
+		
+				textField_9 = new JTextField();
+				textField_9.setEditable(false);
+				textField_9.setColumns(10);
+				textField_9.setBounds(519, 600, 20, 22);
+				frame.getContentPane().add(textField_9);
+		
+		txtIRP = new JTextField();
+		txtIRP.setEditable(false);
+		txtIRP.setColumns(10);
+		txtIRP.setBounds(387, 600, 20, 22);
+		frame.getContentPane().add(txtIRP);
+		
+				textField_8 = new JTextField();
+				textField_8.setEditable(false);
+				textField_8.setColumns(10);
+				textField_8.setBounds(497, 600, 20, 22);
+				frame.getContentPane().add(textField_8);
+		
+				JLabel lblStatus = new JLabel("Status");
+				lblStatus.setBounds(329, 603, 56, 16);
+				frame.getContentPane().add(lblStatus);
+		
+				JLabel lblDc = new JLabel("DC");
+				lblDc.setBounds(522, 574, 20, 16);
+				frame.getContentPane().add(lblDc);
+		
+		txtRP0 = new JTextField();
+		txtRP0.setEditable(false);
+		txtRP0.setColumns(10);
+		txtRP0.setBounds(431, 600, 20, 22);
+		frame.getContentPane().add(txtRP0);
+		
+		JLabel lblRp_1 = new JLabel("RP1");
+		lblRp_1.setBounds(409, 574, 30, 16);
+		frame.getContentPane().add(lblRp_1);
+		
+		txtRP1 = new JTextField();
+		txtRP1.setEditable(false);
+		txtRP1.setColumns(10);
+		txtRP1.setBounds(409, 600, 20, 22);
+		frame.getContentPane().add(txtRP1);
 		textField_1.setBounds(673, 211, 20, 22);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
@@ -129,22 +220,6 @@ public class GUI_Simulation {
 		JLabel lblPclatch = new JLabel("PCLATCH");
 		lblPclatch.setBounds(673, 405, 56, 16);
 		frame.getContentPane().add(lblPclatch);
-
-		JLabel lblStatus = new JLabel("Status");
-		lblStatus.setBounds(673, 434, 56, 16);
-		frame.getContentPane().add(lblStatus);
-
-		JLabel lblZ = new JLabel("Z");
-		lblZ.setBounds(847, 289, 20, 16);
-		frame.getContentPane().add(lblZ);
-
-		JLabel lblDc = new JLabel("DC");
-		lblDc.setBounds(870, 289, 20, 16);
-		frame.getContentPane().add(lblDc);
-
-		JLabel lblC = new JLabel("C");
-		lblC.setBounds(893, 289, 20, 16);
-		frame.getContentPane().add(lblC);
 
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
@@ -175,30 +250,6 @@ public class GUI_Simulation {
 		textField_6.setColumns(10);
 		textField_6.setBounds(741, 402, 63, 22);
 		frame.getContentPane().add(textField_6);
-
-		textField_7 = new JTextField();
-		textField_7.setEditable(false);
-		textField_7.setColumns(10);
-		textField_7.setBounds(741, 431, 63, 22);
-		frame.getContentPane().add(textField_7);
-
-		textField_8 = new JTextField();
-		textField_8.setEditable(false);
-		textField_8.setColumns(10);
-		textField_8.setBounds(847, 315, 20, 22);
-		frame.getContentPane().add(textField_8);
-
-		textField_9 = new JTextField();
-		textField_9.setEditable(false);
-		textField_9.setColumns(10);
-		textField_9.setBounds(870, 315, 20, 22);
-		frame.getContentPane().add(textField_9);
-
-		textField_10 = new JTextField();
-		textField_10.setEditable(false);
-		textField_10.setColumns(10);
-		textField_10.setBounds(893, 315, 20, 22);
-		frame.getContentPane().add(textField_10);
 
 		textField_11 = new JTextField();
 		textField_11.setEditable(false);
@@ -549,6 +600,36 @@ public class GUI_Simulation {
 		});
 		btnLoadLstFile.setBounds(34, 52, 125, 25);
 		frame.getContentPane().add(btnLoadLstFile);
+		
+		JLabel timer_lbl = new JLabel("Timer0");
+		timer_lbl.setBounds(34, 481, 56, 16);
+		frame.getContentPane().add(timer_lbl);
+		
+		timer_txt = new JTextField();
+		timer_txt.setEditable(false);
+		timer_txt.setColumns(10);
+		timer_txt.setBounds(96, 478, 63, 22);
+		frame.getContentPane().add(timer_txt);
+		
+		JLabel intcon_lbl = new JLabel("INTCON");
+		intcon_lbl.setBounds(673, 463, 56, 16);
+		frame.getContentPane().add(intcon_lbl);
+		
+		intcon_txt = new JTextField();
+		intcon_txt.setEditable(false);
+		intcon_txt.setColumns(10);
+		intcon_txt.setBounds(741, 460, 63, 22);
+		frame.getContentPane().add(intcon_txt);
+		
+		JLabel optionReg_lbl = new JLabel("option");
+		optionReg_lbl.setBounds(673, 492, 56, 16);
+		frame.getContentPane().add(optionReg_lbl);
+		
+		optionReg_txt = new JTextField();
+		optionReg_txt.setEditable(false);
+		optionReg_txt.setColumns(10);
+		optionReg_txt.setBounds(741, 489, 63, 22);
+		frame.getContentPane().add(optionReg_txt);
 	}
 
 	private void switchBit(JTextField txtFieldToChange){
@@ -583,10 +664,27 @@ public class GUI_Simulation {
 	public void setPCL(int pcl) {
 		textField_5.setText(pcl+"");
 	}
-	public void setStatus(int status) {
-		textField_7.setText(status+"");
+	
+	
+	public void setPD(int pd) {
+		txtPD.setText(pd+"");
 	}
-
+	public void setTO(int to) {
+		txtTO.setText(to+"");
+	}
+	public void setRP0(int rp0) {
+		txtRP0.setText(rp0+"");
+	}
+	public void setRP1(int rp1) {
+		txtRP1.setText(rp1+"");
+	}
+	public void setIRP(int irp) {
+		txtIRP.setText(irp+"");
+	}
+	
+	
+	
+	
 	public void setTableRow(String text, int row) {
 		table.setValueAt(text, row, 2);
 		
