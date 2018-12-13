@@ -66,6 +66,7 @@ public class Control {
 		gui.setRP0(register.getRp0());		
 		gui.setRP1(register.getRp1());		
 		gui.setIRP(register.getIrp());		
+		gui.setTimer0(register.getTimer0());
 	}
 	
 	//decodes ALL lines of assembler code

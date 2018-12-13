@@ -109,6 +109,16 @@ public class GUI_Simulation {
 				switchBit(textField_1);
 			}
 		});
+				
+				timer_txt = new JTextField();
+				timer_txt.setEditable(false);
+				timer_txt.setColumns(10);
+				timer_txt.setBounds(96, 478, 63, 22);
+				frame.getContentPane().add(timer_txt);
+				
+				JLabel timer_lbl = new JLabel("Timer0");
+				timer_lbl.setBounds(34, 481, 56, 16);
+				frame.getContentPane().add(timer_lbl);
 		
 				JLabel lblC = new JLabel("C");
 				lblC.setBounds(545, 574, 20, 16);
@@ -601,16 +611,6 @@ public class GUI_Simulation {
 		btnLoadLstFile.setBounds(34, 52, 125, 25);
 		frame.getContentPane().add(btnLoadLstFile);
 		
-		JLabel timer_lbl = new JLabel("Timer0");
-		timer_lbl.setBounds(34, 481, 56, 16);
-		frame.getContentPane().add(timer_lbl);
-		
-		timer_txt = new JTextField();
-		timer_txt.setEditable(false);
-		timer_txt.setColumns(10);
-		timer_txt.setBounds(96, 478, 63, 22);
-		frame.getContentPane().add(timer_txt);
-		
 		JLabel intcon_lbl = new JLabel("INTCON");
 		intcon_lbl.setBounds(673, 463, 56, 16);
 		frame.getContentPane().add(intcon_lbl);
@@ -681,7 +681,10 @@ public class GUI_Simulation {
 	public void setIRP(int irp) {
 		txtIRP.setText(irp+"");
 	}
-	
+
+	public void setTimer0(int timer0) {
+		timer_txt.setText(timer0+"");
+	}
 	
 	
 	
