@@ -104,6 +104,7 @@ public class Register {
 	}
 	public void setC(int c) {
 		this.c = c;
+		System.out.println(c);
 	}
 	public int getDc() {
 		return dc;
