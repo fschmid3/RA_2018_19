@@ -26,6 +26,7 @@ public class Register {
 	private int trisA = 0x1F;
 	private int trisB = 0xFF;
 	private int option = 0xFF;
+	private int vorteiler = 0;
 	
 	
 	private int[] ram = new int[195];
@@ -260,6 +261,12 @@ public class Register {
 	}
 	public void setOption(int option) {
 		this.option = option;
+	}
+	public int getVorteiler() {
+		return vorteiler;
+	}
+	public void setVorteiler(int vorteiler) {
+		this.vorteiler = vorteiler;
 	}
 	
 	

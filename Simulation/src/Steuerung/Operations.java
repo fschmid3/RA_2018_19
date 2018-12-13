@@ -323,14 +323,31 @@ public class Operations {
 	//End Bit oriented file register operations
 	
 	
-	
+	// increments Timer0 
 	public void incrementTimer0() {
-		if(register.getTimer0()+1 > 255) {
-			register.setTimer0(0);
-			register.setIntcon(0x04);
-		}else {
-			register.setTimer0(register.getTimer0()+1);
+		if((register.getOption()&0x20) == 0) {
+			if((register.getOption()&0x08) == 0) {
+				register.setVorteiler(register.getVorteiler()+1);
+				if(register.getVorteiler() == Math.pow(2, (register.getOption()&0x07)+1)) {
+					if(register.getTimer0()+1 > 255) {
+						register.setTimer0(0);
+						register.setIntcon(0x04);
+					}else {
+						register.setTimer0(register.getTimer0()+1);
+					}
+					register.setVorteiler(0);
+				}
+			}else {
+				if(register.getTimer0()+1 > 255) {
+					register.setTimer0(0);
+					register.setIntcon(0x04);
+				}else {
+					register.setTimer0(register.getTimer0()+1);
+				}
+			}
+			
 		}
+		
 	}
 	
 	
