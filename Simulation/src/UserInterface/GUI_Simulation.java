@@ -110,7 +110,7 @@ public class GUI_Simulation {
 				switchBit(textField_1);
 			}
 		});
-				
+				 
 				timer_txt = new JTextField();
 				timer_txt.setEditable(false);
 				timer_txt.setColumns(10);
