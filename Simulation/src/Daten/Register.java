@@ -71,7 +71,7 @@ public class Register {
 		if(adress<0x0C) {
 			switch(adress) {
 			case 0:
-				ram[indirect] = value-0x0C;
+				ram[indirect] = value-0x0C; 
 				break;
 			case 2:
 				pcl = value;
