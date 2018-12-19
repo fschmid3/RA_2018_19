@@ -5,7 +5,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -20,14 +19,13 @@ import javax.swing.table.DefaultTableModel;
 import Steuerung.Control;
 import javax.swing.JScrollPane;
 import java.awt.SystemColor;
-import java.awt.Font;
 import javax.swing.JFileChooser;
 import java.io.File;   
 
 public class GUI_Simulation {
 
 	private JFrame frame;
-	private JTextField textField_1;
+	private JTextField portBPin7_txt;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
@@ -37,21 +35,21 @@ public class GUI_Simulation {
 	private JTextField textField_8;
 	private JTextField textField_9;
 	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
-	private JTextField textField_16;
-	private JTextField textField_17;
-	private JTextField textField_18;
-	private JTextField textField_19;
-	private JTextField textField_20;
-	private JTextField textField_21;
-	private JTextField textField_22;
-	private JTextField textField_23;
-	private JTextField textField_24;
-	private JTextField textField_25;
+	private JTextField portBPin6_txt;
+	private JTextField portBPin5_txt;
+	private JTextField portBPin4_txt;
+	private JTextField portBPin3_txt;
+	private JTextField portBPin2_txt;
+	private JTextField portBPin1_txt;
+	private JTextField portBPin0_txt;
+	private JTextField portAPin0_txt;
+	private JTextField portAPin1_txt;
+	private JTextField portAPin2_txt;
+	private JTextField portAPin3_txt;
+	private JTextField portAPin4_txt;
+	private JTextField portAPin5_txt;
+	private JTextField portAPin6_txt;
+	private JTextField portAPin7_txt;
 	private JTable table;
 	private Control strg;
 	private JTextField timer_txt;
@@ -61,6 +59,9 @@ public class GUI_Simulation {
 	private JTextField txtRP0;
 	private JTextField txtRP1;
 	private JTextField txtIRP;
+	
+	
+	private boolean stopPressed = false; 
 
 	/**
 	 * Launch the application.
@@ -102,12 +103,12 @@ public class GUI_Simulation {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.addMouseListener(new MouseAdapter() {
+		portBPin7_txt = new JTextField();
+		portBPin7_txt.setEditable(false);
+		portBPin7_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_1);
+				switchBit(portBPin7_txt);
 			}
 		});
 				  
@@ -204,9 +205,9 @@ public class GUI_Simulation {
 		txtRP1.setColumns(10);
 		txtRP1.setBounds(774, 569, 20, 22);
 		frame.getContentPane().add(txtRP1);
-		textField_1.setBounds(770, 211, 20, 22);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		portBPin7_txt.setBounds(770, 211, 20, 22);
+		frame.getContentPane().add(portBPin7_txt);
+		portBPin7_txt.setColumns(10);
 
 		JLabel lblPortB = new JLabel("Port B");
 		lblPortB.setBounds(770, 178, 56, 16);
@@ -262,77 +263,77 @@ public class GUI_Simulation {
 		textField_6.setBounds(838, 402, 63, 22);
 		frame.getContentPane().add(textField_6);
 
-		textField_11 = new JTextField();
-		textField_11.setEditable(false);
-		textField_11.addMouseListener(new MouseAdapter() {
+		portBPin6_txt = new JTextField();
+		portBPin6_txt.setEditable(false);
+		portBPin6_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_11);
+				switchBit(portBPin6_txt);
 			}
 		});
-		textField_11.setColumns(10);
-		textField_11.setBounds(790, 211, 20, 22);
-		frame.getContentPane().add(textField_11);
+		portBPin6_txt.setColumns(10);
+		portBPin6_txt.setBounds(790, 211, 20, 22);
+		frame.getContentPane().add(portBPin6_txt);
 
-		textField_12 = new JTextField();
-		textField_12.setEditable(false);
-		textField_12.addMouseListener(new MouseAdapter() {
+		portBPin5_txt = new JTextField();
+		portBPin5_txt.setEditable(false);
+		portBPin5_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_12);
+				switchBit(portBPin5_txt);
 			}
 		});
-		textField_12.setColumns(10);
-		textField_12.setBounds(810, 211, 20, 22);
-		frame.getContentPane().add(textField_12);
+		portBPin5_txt.setColumns(10);
+		portBPin5_txt.setBounds(810, 211, 20, 22);
+		frame.getContentPane().add(portBPin5_txt);
 
-		textField_13 = new JTextField();
-		textField_13.setEditable(false);
-		textField_13.addMouseListener(new MouseAdapter() {
+		portBPin4_txt = new JTextField();
+		portBPin4_txt.setEditable(false);
+		portBPin4_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				switchBit(textField_13);
+				switchBit(portBPin4_txt);
 			}
 		});
-		textField_13.setColumns(10);
-		textField_13.setBounds(830, 211, 20, 22);
-		frame.getContentPane().add(textField_13);
+		portBPin4_txt.setColumns(10);
+		portBPin4_txt.setBounds(830, 211, 20, 22);
+		frame.getContentPane().add(portBPin4_txt);
 
-		textField_14 = new JTextField();
-		textField_14.setEditable(false);
-		textField_14.addMouseListener(new MouseAdapter() {
+		portBPin3_txt = new JTextField();
+		portBPin3_txt.setEditable(false);
+		portBPin3_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_14);
+				switchBit(portBPin3_txt);
 			}
 		});
-		textField_14.setColumns(10);
-		textField_14.setBounds(850, 211, 20, 22);
-		frame.getContentPane().add(textField_14);
+		portBPin3_txt.setColumns(10);
+		portBPin3_txt.setBounds(850, 211, 20, 22);
+		frame.getContentPane().add(portBPin3_txt);
 
-		textField_15 = new JTextField();
-		textField_15.setEditable(false);
-		textField_15.addMouseListener(new MouseAdapter() {
+		portBPin2_txt = new JTextField();
+		portBPin2_txt.setEditable(false);
+		portBPin2_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_15);
+				switchBit(portBPin2_txt);
 			}
 		});
-		textField_15.setColumns(10);
-		textField_15.setBounds(870, 211, 20, 22);
-		frame.getContentPane().add(textField_15);
+		portBPin2_txt.setColumns(10);
+		portBPin2_txt.setBounds(870, 211, 20, 22);
+		frame.getContentPane().add(portBPin2_txt);
 
-		textField_16 = new JTextField();
-		textField_16.setEditable(false);
-		textField_16.addMouseListener(new MouseAdapter() {
+		portBPin1_txt = new JTextField();
+		portBPin1_txt.setEditable(false);
+		portBPin1_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_16);
+				switchBit(portBPin1_txt);
 			}
 		});
-		textField_16.setColumns(10);
-		textField_16.setBounds(890, 211, 20, 22);
-		frame.getContentPane().add(textField_16);
+		portBPin1_txt.setColumns(10);
+		portBPin1_txt.setBounds(890, 211, 20, 22);
+		frame.getContentPane().add(portBPin1_txt);
 
 		JLabel label = new JLabel("7");
 		label.setBounds(774, 194, 20, 16);
@@ -362,17 +363,17 @@ public class GUI_Simulation {
 		label_6.setBounds(890, 195, 20, 16);
 		frame.getContentPane().add(label_6);
 
-		textField_17 = new JTextField();
-		textField_17.setEditable(false);
-		textField_17.addMouseListener(new MouseAdapter() {
+		portBPin0_txt = new JTextField();
+		portBPin0_txt.setEditable(false);
+		portBPin0_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_17);
+				switchBit(portBPin0_txt);
 			}
 		});
-		textField_17.setColumns(10);
-		textField_17.setBounds(910, 211, 20, 22);
-		frame.getContentPane().add(textField_17);
+		portBPin0_txt.setColumns(10);
+		portBPin0_txt.setBounds(910, 211, 20, 22);
+		frame.getContentPane().add(portBPin0_txt);
 
 		JLabel label_7 = new JLabel("0");
 		label_7.setBounds(910, 195, 20, 16);
@@ -414,122 +415,119 @@ public class GUI_Simulation {
 		label_16.setBounds(910, 116, 20, 16);
 		frame.getContentPane().add(label_16);
 
-		textField_18 = new JTextField();
-		textField_18.setEditable(false);
-		textField_18.addMouseListener(new MouseAdapter() {
+		portAPin0_txt = new JTextField();
+		portAPin0_txt.setEditable(false);
+		portAPin0_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_18);
+				switchBit(portAPin0_txt);
 			}
 		});
-		textField_18.setColumns(10);
-		textField_18.setBounds(910, 132, 20, 22);
-		frame.getContentPane().add(textField_18);
+		portAPin0_txt.setColumns(10);
+		portAPin0_txt.setBounds(910, 132, 20, 22);
+		frame.getContentPane().add(portAPin0_txt);
 
-		textField_19 = new JTextField();
-		textField_19.setEditable(false);
-		textField_19.addMouseListener(new MouseAdapter() {
+		portAPin1_txt = new JTextField();
+		portAPin1_txt.setEditable(false);
+		portAPin1_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_19);
+				switchBit(portAPin1_txt);
 			}
 		});
-		textField_19.setColumns(10);
-		textField_19.setBounds(890, 132, 20, 22);
-		frame.getContentPane().add(textField_19);
+		portAPin1_txt.setColumns(10);
+		portAPin1_txt.setBounds(890, 132, 20, 22);
+		frame.getContentPane().add(portAPin1_txt);
 
-		textField_20 = new JTextField();
-		textField_20.setEditable(false);
-		textField_20.addMouseListener(new MouseAdapter() {
+		portAPin2_txt = new JTextField();
+		portAPin2_txt.setEditable(false);
+		portAPin2_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_20);
+				switchBit(portAPin2_txt);
 			}
 		});
-		textField_20.setColumns(10);
-		textField_20.setBounds(870, 132, 20, 22);
-		frame.getContentPane().add(textField_20);
+		portAPin2_txt.setColumns(10);
+		portAPin2_txt.setBounds(870, 132, 20, 22);
+		frame.getContentPane().add(portAPin2_txt);
 
-		textField_21 = new JTextField();
-		textField_21.setEditable(false);
-		textField_21.addMouseListener(new MouseAdapter() {
+		portAPin3_txt = new JTextField();
+		portAPin3_txt.setEditable(false);
+		portAPin3_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_21);
+				switchBit(portAPin3_txt);
 			}
 		});
-		textField_21.setColumns(10);
-		textField_21.setBounds(850, 132, 20, 22);
-		frame.getContentPane().add(textField_21);
+		portAPin3_txt.setColumns(10);
+		portAPin3_txt.setBounds(850, 132, 20, 22);
+		frame.getContentPane().add(portAPin3_txt);
 
-		textField_22 = new JTextField();
-		textField_22.setEditable(false);
-		textField_22.addMouseListener(new MouseAdapter() {
+		portAPin4_txt = new JTextField();
+		portAPin4_txt.setEditable(false);
+		portAPin4_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_22);
+				switchBit(portAPin4_txt);
 			}
 		});
-		textField_22.setColumns(10);
-		textField_22.setBounds(830, 132, 20, 22);
-		frame.getContentPane().add(textField_22);
+		portAPin4_txt.setColumns(10);
+		portAPin4_txt.setBounds(830, 132, 20, 22);
+		frame.getContentPane().add(portAPin4_txt);
 
-		textField_23 = new JTextField();
-		textField_23.setEditable(false);
-		textField_23.addMouseListener(new MouseAdapter() {
+		portAPin5_txt = new JTextField();
+		portAPin5_txt.setEditable(false);
+		portAPin5_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_23);
+				switchBit(portAPin5_txt);
 			}
 		});
-		textField_23.setColumns(10);
-		textField_23.setBounds(810, 132, 20, 22);
-		frame.getContentPane().add(textField_23);
+		portAPin5_txt.setColumns(10);
+		portAPin5_txt.setBounds(810, 132, 20, 22);
+		frame.getContentPane().add(portAPin5_txt);
 
-		textField_24 = new JTextField();
-		textField_24.setEditable(false);
-		textField_24.addMouseListener(new MouseAdapter() {
+		portAPin6_txt = new JTextField();
+		portAPin6_txt.setEditable(false);
+		portAPin6_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_24);
+				switchBit(portAPin6_txt);
 			}
 		});
-		textField_24.setColumns(10);
-		textField_24.setBounds(790, 132, 20, 22);
-		frame.getContentPane().add(textField_24);
+		portAPin6_txt.setColumns(10);
+		portAPin6_txt.setBounds(790, 132, 20, 22);
+		frame.getContentPane().add(portAPin6_txt);
 
-		textField_25 = new JTextField();
-		textField_25.setEditable(false);
-		textField_25.addMouseListener(new MouseAdapter() {
+		portAPin7_txt = new JTextField();
+		portAPin7_txt.setEditable(false);
+		portAPin7_txt.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				switchBit(textField_25);
+				switchBit(portAPin7_txt);
 			}
 		});
-		textField_25.setColumns(10);
-		textField_25.setBounds(770, 132, 20, 22);
-		frame.getContentPane().add(textField_25);
+		portAPin7_txt.setColumns(10);
+		portAPin7_txt.setBounds(770, 132, 20, 22);
+		frame.getContentPane().add(portAPin7_txt);
 
-		JButton btnRun = new JButton("Run");
+		JButton btnRun = new JButton("Run all");
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					strg.decodeNextLine();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+					
+				
 			}
 		});
-		btnRun.setBounds(679, 680, 70, 25);
+		btnRun.setBounds(616, 638, 108, 35);
 		frame.getContentPane().add(btnRun);
 
 		JButton btnStop = new JButton("Stop");
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				stopPressed = true;
 			}
 		});
-		btnStop.setBounds(761, 680, 70, 25);
+		btnStop.setBounds(637, 680, 70, 25);
 		frame.getContentPane().add(btnStop);
 
 		JButton btnNext = new JButton("Next");
@@ -543,7 +541,7 @@ public class GUI_Simulation {
 				}
 			}
 		});
-		btnNext.setBounds(843, 680, 70, 25);
+		btnNext.setBounds(796, 680, 70, 25);
 		frame.getContentPane().add(btnNext);
 
 		table = new JTable();
@@ -631,6 +629,23 @@ public class GUI_Simulation {
 		optionReg_txt.setColumns(10);
 		optionReg_txt.setBounds(838, 489, 63, 22);
 		frame.getContentPane().add(optionReg_txt);
+		
+		JButton btn_stepByStep = new JButton("Step by Step");
+		btn_stepByStep.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					strg.decodeNextLine();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		btn_stepByStep.setBounds(776, 638, 108, 35);
+		frame.getContentPane().add(btn_stepByStep);
+		
 	}
 
 	private void switchBit(JTextField txtFieldToChange){
@@ -665,7 +680,13 @@ public class GUI_Simulation {
 	public void setPCL(int pcl) {
 		textField_5.setText(pcl+"");
 	}
-	
+
+	public void setOption(int option) {
+		optionReg_txt.setText(option+"");
+	}
+	public void setINTCON(int intcon) {
+		intcon_txt.setText(intcon+"");
+	}
 	
 	public void setPD(int pd) {
 		txtPD.setText(pd+"");
@@ -685,6 +706,69 @@ public class GUI_Simulation {
 
 	public void setTimer0(int timer0) {
 		timer_txt.setText(timer0+"");
+	}
+	
+	
+	
+	
+	//gets number from register and takes bits out of it and sets in Port A pins
+	public void setPortA(int portA) {
+		portAPin7_txt.setText(((portA & 0x80)/128)+"");
+		portAPin6_txt.setText(((portA & 0x40)/64)+"");
+		portAPin5_txt.setText(((portA & 0x20)/32)+"");
+		portAPin4_txt.setText(((portA & 0x10)/16)+"");
+		portAPin3_txt.setText(((portA & 0x08)/8)+"");
+		portAPin2_txt.setText(((portA & 0x04)/4)+"");
+		portAPin1_txt.setText(((portA & 0x02)/2)+"");
+		portAPin0_txt.setText((portA & 0x01)+"");
+	}
+	
+	
+	//takes all Pins of Port A and merges in a Number that will be returned
+	public int getPortA() {
+		int portA = 0;
+
+		portA += Integer.parseInt(portAPin7_txt.getText())*128;
+		portA += Integer.parseInt(portAPin6_txt.getText())*64;
+		portA += Integer.parseInt(portAPin5_txt.getText())*32;
+		portA += Integer.parseInt(portAPin4_txt.getText())*16;
+		portA += Integer.parseInt(portAPin3_txt.getText())*8;
+		portA += Integer.parseInt(portAPin2_txt.getText())*4;
+		portA += Integer.parseInt(portAPin1_txt.getText())*2;
+		portA += Integer.parseInt(portAPin0_txt.getText());
+		
+		return portA;
+	}
+	
+
+	//gets number from register and takes bits out of it and sets in Port B pins
+	public void setPortB(int portB) {
+		portBPin7_txt.setText(((portB & 0x80)/128)+"");
+		portBPin6_txt.setText(((portB & 0x40)/64)+"");
+		portBPin5_txt.setText(((portB & 0x20)/32)+"");
+		portBPin4_txt.setText(((portB & 0x10)/16)+"");
+		portBPin3_txt.setText(((portB & 0x08)/8)+"");
+		portBPin2_txt.setText(((portB & 0x04)/4)+"");
+		portBPin1_txt.setText(((portB & 0x02)/2)+"");
+		portBPin0_txt.setText((portB & 0x01)+"");
+	}
+	
+	
+
+	//takes all Pins of Port B and merges in a Number that will be returned
+	public int getPortB() {
+		int portB = 0;
+		
+		portB += Integer.parseInt(portBPin7_txt.getText())*128;
+		portB += Integer.parseInt(portBPin6_txt.getText())*64;
+		portB += Integer.parseInt(portBPin5_txt.getText())*32;
+		portB += Integer.parseInt(portBPin4_txt.getText())*16;
+		portB += Integer.parseInt(portBPin3_txt.getText())*8;
+		portB += Integer.parseInt(portBPin2_txt.getText())*4;
+		portB += Integer.parseInt(portBPin1_txt.getText())*2;
+		portB += Integer.parseInt(portBPin0_txt.getText());
+		
+		return portB;
 	}
 	
 	

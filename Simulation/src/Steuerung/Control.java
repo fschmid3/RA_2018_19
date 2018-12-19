@@ -14,6 +14,7 @@ public class Control {
 	String[] fileContent;
 	String path = "testfiles/TPicSim1.LST";
 	int [] ai = null;
+	boolean stopPressed = false;
 	
 	
 	
@@ -29,6 +30,8 @@ public class Control {
 		setPath(pPath);
 		putFileContentInString();
 		setFileInTable();
+		gui.setPortA(register.getPortA());
+		gui.setPortB(register.getPortB());
 	}
 	
 	
@@ -52,6 +55,8 @@ public class Control {
 	
 	
 	private void updateGUI() {
+		register.setPortA(gui.getPortA());
+		register.setPortB(gui.getPortB());
 		gui.setSelection(myParser.getStartRow(),myParser.getEndRow(), register.getPc());
 		gui.setC(register.getC());
 		gui.setDC(register.getDc());
@@ -66,8 +71,12 @@ public class Control {
 		gui.setRP0(register.getRp0());		
 		gui.setRP1(register.getRp1());		
 		gui.setIRP(register.getIrp());		
+		gui.setOption(register.getOption());
+		gui.setINTCON(register.getIntcon());
 		gui.setTimer0(register.getTimer0());
+		
 	}
+	
 	
 	//decodes ALL lines of assembler code
 	public void decodeAll() throws IOException {

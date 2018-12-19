@@ -51,6 +51,9 @@ public class Register {
 				System.out.println("Inhalt indirekter Adresse: "+ram[indirect]);
 				returnValue = ram[indirect];
 				break;
+			case 1:
+				returnValue = option;
+				break;
 			case 2:
 				returnValue = pcl;
 				break;
@@ -84,6 +87,9 @@ public class Register {
 			switch(adress) {
 			case 0:
 				ram[indirect] = value-0x0C; 
+				break;
+			case 1:
+				option = value;
 				break;
 			case 2:
 				pcl = value;
