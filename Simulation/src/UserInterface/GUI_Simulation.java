@@ -514,8 +514,22 @@ public class GUI_Simulation {
 		JButton btnRun = new JButton("Run all");
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					
-				
+				stopPressed = false;
+				Thread t = new Thread(){
+				    public void run(){
+				    	boolean decode = true;
+						// TODO Auto-generated method stub
+						while(!stopPressed && decode) {
+							try {
+								decode = strg.decodeNextLine() ;
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+				      }
+				    };
+				t.start();
 			}
 		});
 		btnRun.setBounds(616, 638, 108, 35);
