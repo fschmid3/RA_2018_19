@@ -521,7 +521,7 @@ public class GUI_Simulation {
 						// TODO Auto-generated method stub
 						while(!stopPressed && decode) {
 							try {
-								decode = strg.decodeNextLine() ;
+								decode = strg.decodeNextLine();
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();

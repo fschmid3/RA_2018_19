@@ -51,12 +51,10 @@ public class Operations {
 
 	//adds value on w register
 	public void addLW(int code) {
-		System.out.println("I'm here");
 		int oldW = register.getW();
 		int value = code & 0x00FF;
 		int result = (value+register.getW());
 		//register.setW(result);
-		System.out.println("result:"+result);
 		setC(result);
 		setZ(result);
 		setDC(oldW, value);
@@ -104,8 +102,13 @@ public class Operations {
 	
 	//clears F
 	public void clrF(int code) {
-		register.setRamContent(code&0x7F, 0);
-		setZ(0);
+		if((code&0x7F)==3) {
+			register.setRamContent(code&0x7F, register.getStatus()&0x1F);
+		}else {
+			register.setRamContent(code&0x7F, 0);
+		}
+		register.setZ(1);
+		
 	}
 
 	//clears W
@@ -216,7 +219,7 @@ public class Operations {
 	
 	//rotates f left
 	public void rlF(int code) {
-		System.out.println("code: "+code);
+		//System.out.println("code: "+code);
 		int f = register.getRamContent(code&0x7F);
 		int value =  Integer.rotateLeft(f, 1);
 		value = value&0x00FF;
@@ -312,11 +315,13 @@ public class Operations {
 		}
 	}
 	
+	
+	
 	private int getMaskForSlectingOneBit(int code) {
 		int whichBit = code & 0x0380;
 		whichBit = Integer.rotateRight(whichBit, 7);
 		int shift = 0x0001;
-		int mask = shift<<=whichBit;
+		int mask = shift<<whichBit;
 		
 		return mask;
 	}
@@ -340,11 +345,14 @@ public class Operations {
 		
 	}
 	
+	
+	
 	// increments timer0 in case of overflow, sets Timer0 back to 0
 	private void incrementOrOverflowTimer0() {
 		if(register.getTimer0()+1 > 255) {
 			register.setTimer0(0);
 			register.setIntcon(0x04);
+			register.setZ(1);
 		}else {
 			register.setTimer0(register.getTimer0()+1);
 		}

@@ -27,6 +27,10 @@ public class Register {
 	private int trisB = 0xFF;
 	private int option = 0xFF;
 	private int vorteiler = 0;
+	private int eedata = 0;
+	private int eeadr = 0;
+	private int eecon1 = 0;
+	private int eecon2 = 0;
 	
 	
 	private int[] ram = new int[195];
@@ -45,36 +49,89 @@ public class Register {
 	public int getRamContent(int adress) {
 		int returnValue = 0;
 		if(adress<0x0C) {
-			switch(adress) {
-			case 0:
-				System.out.println("in reg indirect: "+indirect);
-				System.out.println("Inhalt indirekter Adresse: "+ram[indirect]);
-				returnValue = ram[indirect];
-				break;
-			case 1:
-				returnValue = option;
-				break;
-			case 2:
-				returnValue = pcl;
-				break;
-			case 3:
-				returnValue = getStatus();
-				break;
-			case 4:
-				returnValue = fsr;
-				break;
-			case 5:
-				returnValue = portA;
-				break;
-			case 6:
-				returnValue = portB;
-				break;
-			case 10:
-				returnValue = pcLatch;
-				break;
-				default:
-					System.out.println("In register method setRamContent() register setting not already implemented");
+			System.out.println("rp0: "+rp0);
+			if(rp0==0) {
+					switch(adress) {
+				case 0:
+					System.out.println("in reg indirect: "+indirect);
+					System.out.println("Inhalt indirekter Adresse: "+ram[indirect]);
+					returnValue = ram[indirect];
+					break;
+				case 1:
+					returnValue = timer0;
+					break;
+				case 2:
+					returnValue = pcl;
+					break;
+				case 3:
+					returnValue = getStatus();
+					break;
+				case 4:
+					returnValue = fsr;
+					break;
+				case 5:
+					returnValue = portA;
+					break;
+				case 6:
+					returnValue = portB;
+					break;
+				case 8:
+					returnValue = eedata;
+					break;
+				case 9:
+					returnValue = eeadr;
+					break;
+				case 10:
+					returnValue = pcLatch;
+					break;
+				case 11:
+					returnValue = intcon;
+					break;
+					default:
+						System.out.println("In register method setRamContent() register setting not already implemented");
+				}
+			}else {
+					switch(adress) {
+				case 0:
+					System.out.println("in reg indirect: "+indirect);
+					System.out.println("Inhalt indirekter Adresse: "+ram[indirect]);
+					returnValue = ram[indirect];
+					break;
+				case 1:
+					returnValue = option;
+					break;
+				case 2:
+					returnValue = pcl;
+					break;
+				case 3:
+					returnValue = getStatus();
+					break;
+				case 4:
+					returnValue = fsr;
+					break;
+				case 5:
+					returnValue = trisA;
+					break;
+				case 6:
+					returnValue = trisB;
+					break;
+				case 8:
+					returnValue = eecon1;
+					break;
+				case 9:
+					returnValue = eecon1;
+					break;
+				case 10:
+					returnValue = pcLatch;
+					break;
+				case 11:
+					returnValue = intcon;
+					break;
+					default:
+						System.out.println("In register method setRamContent() register setting not already implemented");
+				}
 			}
+			
 		}else {
 			returnValue = ram[adress-0x0C];
 		}
@@ -84,34 +141,85 @@ public class Register {
 	
 	public void setRamContent(int adress, int value) {
 		if(adress<0x0C) {
-			switch(adress) {
-			case 0:
-				ram[indirect] = value-0x0C; 
-				break;
-			case 1:
-				option = value;
-				break;
-			case 2:
-				pcl = value;
-				break;
-			case 3:
-				setStatus(value);
-				break;
-			case 4:
-				fsr = value;
-				break;
-			case 5:
-				portA = value;
-				break;
-			case 6:
-				portB = value;
-				break;
-			case 10:
-				pcLatch = value;
-				break;
-				default:
-					System.out.println("In register method setRamContent() register setting not already implemented");
+
+			if(rp0==0) {
+					switch(adress) {
+				case 0:
+					ram[indirect] = value-0x0C; 
+					break;
+				case 1:
+					timer0 = value;
+					break;
+				case 2:
+					pcl = value;
+					break;
+				case 3:
+					setStatus(value);
+					break;
+				case 4:
+					fsr = value;
+					break;
+				case 5:
+					portA = value;
+					break;
+				case 6:
+					portB = value;
+					break;
+				case 8:
+					eedata = value;
+					break;
+				case 9:
+					eeadr = value;
+					break;
+				case 10:
+					pcLatch = value;
+					break;
+				case 11:
+					intcon = value;
+					break;
+					default:
+						System.out.println("In register method setRamContent() register setting not already implemented");
+				}
+			}else {
+				switch(adress) {
+				case 0:
+					ram[indirect] = value-0x0C; 
+					break;
+				case 1:
+					option = value;
+					break;
+				case 2:
+					pcl = value;
+					break;
+				case 3:
+					setStatus(value);
+					break;
+				case 4:
+					fsr = value;
+					break;
+				case 5:
+					trisA = value;
+					break;
+				case 6:
+					trisB = value;
+					break;
+				case 8:
+					eecon1 = value;
+					break;
+				case 9:
+					eecon2 = value;
+					break;
+				case 10:
+					pcLatch = value;
+					break;
+				case 11:
+					intcon = value;
+					break;
+					default:
+						System.out.println("In register method setRamContent() register setting not already implemented");
+				}
 			}
+			
 		}else {
 			ram[adress-0x0C] = value;
 		}
