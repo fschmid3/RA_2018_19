@@ -13,7 +13,7 @@ public class Control{
 	String[] fileContent;
 	String path;
 	int [] ai = null;
-	
+
 	public Control(GUI_Simulation myGUI) {
 		gui=myGUI;
 	}
@@ -35,9 +35,10 @@ public class Control{
 		if(!(myParser == null)) {
 			ai = myParser.parseCode(fileContent);
 			if((register.getPc()<ai.length) && ( register.getPc() < myParser.getEndRow())) {
-				System.out.println(ai[register.getPc()]);
+				System.out.println("hier "+ register.getPc() + " & "+myParser.getStartRow());
+				
 				int pc = register.getPc();
-
+				
 				myDec.decode(ai[pc]);
 				register.setPc(register.getPc()+1);
 				updateGUI();
@@ -55,6 +56,7 @@ public class Control{
 	private void updateGUI() {
 		register.setPortA(gui.getPortA());
 		register.setPortB(gui.getPortB());
+		gui.isBreakPointSet(myParser.getStartRow() + register.getPc());
 		gui.setSelection(myParser.getStartRow(),myParser.getEndRow(), register.getPc());
 		gui.setC(register.getC());
 		gui.setDC(register.getDc());

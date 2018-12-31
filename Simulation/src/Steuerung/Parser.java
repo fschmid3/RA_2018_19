@@ -39,8 +39,7 @@ public class Parser {
 		String codeBuffer = null;
 		int indexContent;
 		
-		for(indexContent = 0; (!fileContent[indexContent].contains("start")) && (!fileContent[indexContent].contains("loop")); indexContent++) {}
-		indexContent++;
+		for(indexContent = 0; (!fileContent[indexContent].substring(0, 4).contains("0000") /*&& (!fileContent[indexContent].contains("loop")*/); indexContent++) {}
 		startRow=indexContent;
 		for(int i= 0;!fileContent[indexContent].contains("ende") && i < aiBuffer.length; indexContent++,i++) {
 			

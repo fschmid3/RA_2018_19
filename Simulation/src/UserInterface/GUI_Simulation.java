@@ -59,8 +59,8 @@ public class GUI_Simulation {
 	private JTextField txtRP0;
 	private JTextField txtRP1;
 	private JTextField txtIRP;
-	
-	
+
+
 	private boolean stopPressed = false; 
 
 	/**
@@ -111,95 +111,95 @@ public class GUI_Simulation {
 				switchBit(portBPin7_txt);
 			}
 		});
-				  
-				timer_txt = new JTextField();
-				timer_txt.setEditable(false);
-				timer_txt.setColumns(10);
-				timer_txt.setBounds(96, 569, 63, 22);
-				frame.getContentPane().add(timer_txt);
-				
-				JLabel timer_lbl = new JLabel("Timer0");
-				timer_lbl.setBounds(34, 572, 56, 16);
-				frame.getContentPane().add(timer_lbl);
-		
-				JLabel lblC = new JLabel("C");
-				lblC.setBounds(910, 543, 20, 16);
-				frame.getContentPane().add(lblC);
-		
+
+		timer_txt = new JTextField();
+		timer_txt.setEditable(false);
+		timer_txt.setColumns(10);
+		timer_txt.setBounds(96, 569, 63, 22);
+		frame.getContentPane().add(timer_txt);
+
+		JLabel timer_lbl = new JLabel("Timer0");
+		timer_lbl.setBounds(34, 572, 56, 16);
+		frame.getContentPane().add(timer_lbl);
+
+		JLabel lblC = new JLabel("C");
+		lblC.setBounds(910, 543, 20, 16);
+		frame.getContentPane().add(lblC);
+
 		JLabel lblRp = new JLabel("RP0");
 		lblRp.setBounds(796, 543, 30, 16);
 		frame.getContentPane().add(lblRp);
-		
-				JLabel lblZ = new JLabel("Z");
-				lblZ.setBounds(864, 543, 20, 16);
-				frame.getContentPane().add(lblZ);
-		
-				textField_10 = new JTextField();
-				textField_10.setEditable(false);
-				textField_10.setColumns(10);
-				textField_10.setBounds(906, 569, 20, 22);
-				frame.getContentPane().add(textField_10);
-		
+
+		JLabel lblZ = new JLabel("Z");
+		lblZ.setBounds(864, 543, 20, 16);
+		frame.getContentPane().add(lblZ);
+
+		textField_10 = new JTextField();
+		textField_10.setEditable(false);
+		textField_10.setColumns(10);
+		textField_10.setBounds(906, 569, 20, 22);
+		frame.getContentPane().add(textField_10);
+
 		JLabel lblpd = new JLabel("!PD");
 		lblpd.setBounds(840, 543, 20, 16);
 		frame.getContentPane().add(lblpd);
-		
+
 		JLabel lblto = new JLabel("!TO");
 		lblto.setBounds(818, 543, 30, 16);
 		frame.getContentPane().add(lblto);
-		
-				txtPD = new JTextField();
-				txtPD.setEditable(false);
-				txtPD.setColumns(10);
-				txtPD.setBounds(840, 569, 20, 22);
-				frame.getContentPane().add(txtPD);
-		
+
+		txtPD = new JTextField();
+		txtPD.setEditable(false);
+		txtPD.setColumns(10);
+		txtPD.setBounds(840, 569, 20, 22);
+		frame.getContentPane().add(txtPD);
+
 		txtTO = new JTextField();
 		txtTO.setEditable(false);
 		txtTO.setColumns(10);
 		txtTO.setBounds(818, 569, 20, 22);
 		frame.getContentPane().add(txtTO);
-		
+
 		JLabel lblIrp = new JLabel("IRP");
 		lblIrp.setBounds(752, 543, 20, 16);
 		frame.getContentPane().add(lblIrp);
-		
-				textField_9 = new JTextField();
-				textField_9.setEditable(false);
-				textField_9.setColumns(10);
-				textField_9.setBounds(884, 569, 20, 22);
-				frame.getContentPane().add(textField_9);
-		
+
+		textField_9 = new JTextField();
+		textField_9.setEditable(false);
+		textField_9.setColumns(10);
+		textField_9.setBounds(884, 569, 20, 22);
+		frame.getContentPane().add(textField_9);
+
 		txtIRP = new JTextField();
 		txtIRP.setEditable(false);
 		txtIRP.setColumns(10);
 		txtIRP.setBounds(752, 569, 20, 22);
 		frame.getContentPane().add(txtIRP);
-		
-				textField_8 = new JTextField();
-				textField_8.setEditable(false);
-				textField_8.setColumns(10);
-				textField_8.setBounds(862, 569, 20, 22);
-				frame.getContentPane().add(textField_8);
-		
-				JLabel lblStatus = new JLabel("Status");
-				lblStatus.setBounds(694, 572, 56, 16);
-				frame.getContentPane().add(lblStatus);
-		
-				JLabel lblDc = new JLabel("DC");
-				lblDc.setBounds(887, 543, 20, 16);
-				frame.getContentPane().add(lblDc);
-		
+
+		textField_8 = new JTextField();
+		textField_8.setEditable(false);
+		textField_8.setColumns(10);
+		textField_8.setBounds(862, 569, 20, 22);
+		frame.getContentPane().add(textField_8);
+
+		JLabel lblStatus = new JLabel("Status");
+		lblStatus.setBounds(694, 572, 56, 16);
+		frame.getContentPane().add(lblStatus);
+
+		JLabel lblDc = new JLabel("DC");
+		lblDc.setBounds(887, 543, 20, 16);
+		frame.getContentPane().add(lblDc);
+
 		txtRP0 = new JTextField();
 		txtRP0.setEditable(false);
 		txtRP0.setColumns(10);
 		txtRP0.setBounds(796, 569, 20, 22);
 		frame.getContentPane().add(txtRP0);
-		
+
 		JLabel lblRp_1 = new JLabel("RP1");
 		lblRp_1.setBounds(774, 543, 30, 16);
 		frame.getContentPane().add(lblRp_1);
-		
+
 		txtRP1 = new JTextField();
 		txtRP1.setEditable(false);
 		txtRP1.setColumns(10);
@@ -516,8 +516,8 @@ public class GUI_Simulation {
 			public void actionPerformed(ActionEvent arg0) {
 				stopPressed = false;
 				Thread t = new Thread(){
-				    public void run(){
-				    	boolean decode = true;
+					public void run(){
+						boolean decode = true;
 						// TODO Auto-generated method stub
 						while(!stopPressed && decode) {
 							try {
@@ -527,8 +527,8 @@ public class GUI_Simulation {
 								e.printStackTrace();
 							}
 						}
-				      }
-				    };
+					}
+				};
 				t.start();
 			}
 		});
@@ -559,8 +559,8 @@ public class GUI_Simulation {
 		frame.getContentPane().add(btnNext);
 
 		table = new JTable();
-		
-		
+
+
 		table.setFont(table.getFont().deriveFont(12f));
 		table.setModel(new DefaultTableModel(new Object[350][3], new String[] {"M", "B", "New column"}) {
 			boolean[] columnEditables = new boolean[] {
@@ -580,27 +580,25 @@ public class GUI_Simulation {
 		table.getColumnModel().getColumn(1).setMaxWidth(30);
 		table.getColumnModel().getColumn(2).setResizable(false);
 		table.getColumnModel().getColumn(2).setPreferredWidth(200);
-		table.setBounds(117, 70, 337, 5414);
-		
+		table.setBounds(34, 99, 715, 457);
+
 		frame.getContentPane().add(table);
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(34, 99, 715, 457);
 		frame.getContentPane().add(scrollPane);
-		
+
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int row = table.rowAtPoint(e.getPoint());
-		        int col = table.columnAtPoint(e.getPoint());
-		        if (row >= 0 && col >= 0) {
-		            table.setCellSelectionEnabled(true);
-		            table.setSelectionBackground(new Color(0xe81e21));;
-		            table.changeSelection(row, col, true, false);
-		        }
+				if (row >= 0 && row < 350) {
+					setBreakPoint(row);
+					
+				}
 			}
 		});
-		
+
 		JFileChooser fileChooser = new JFileChooser();
 
 		JButton btnLoadLstFile = new JButton("Load File...");
@@ -623,43 +621,43 @@ public class GUI_Simulation {
 		});
 		btnLoadLstFile.setBounds(34, 52, 125, 25);
 		frame.getContentPane().add(btnLoadLstFile);
-		
+
 		JLabel intcon_lbl = new JLabel("INTCON");
 		intcon_lbl.setBounds(770, 463, 56, 16);
 		frame.getContentPane().add(intcon_lbl);
-		
+
 		intcon_txt = new JTextField();
 		intcon_txt.setEditable(false);
 		intcon_txt.setColumns(10);
 		intcon_txt.setBounds(838, 460, 63, 22);
 		frame.getContentPane().add(intcon_txt);
-		
+
 		JLabel optionReg_lbl = new JLabel("option");
 		optionReg_lbl.setBounds(770, 492, 56, 16);
 		frame.getContentPane().add(optionReg_lbl);
-		
+
 		optionReg_txt = new JTextField();
 		optionReg_txt.setEditable(false);
 		optionReg_txt.setColumns(10);
 		optionReg_txt.setBounds(838, 489, 63, 22);
 		frame.getContentPane().add(optionReg_txt);
-		
+
 		JButton btn_stepByStep = new JButton("Step by Step");
 		btn_stepByStep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				try {
 					strg.decodeNextLine();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 			}
 		});
 		btn_stepByStep.setBounds(776, 638, 108, 35);
 		frame.getContentPane().add(btn_stepByStep);
-		
+
 	}
 
 	private void switchBit(JTextField txtFieldToChange){
@@ -701,7 +699,7 @@ public class GUI_Simulation {
 	public void setINTCON(int intcon) {
 		intcon_txt.setText(intcon+"");
 	}
-	
+
 	public void setPD(int pd) {
 		txtPD.setText(pd+"");
 	}
@@ -721,10 +719,10 @@ public class GUI_Simulation {
 	public void setTimer0(int timer0) {
 		timer_txt.setText(timer0+"");
 	}
-	
-	
-	
-	
+
+
+
+
 	//gets number from register and takes bits out of it and sets in Port A pins
 	public void setPortA(int portA) {
 		portAPin7_txt.setText(((portA & 0x80)/128)+"");
@@ -736,8 +734,8 @@ public class GUI_Simulation {
 		portAPin1_txt.setText(((portA & 0x02)/2)+"");
 		portAPin0_txt.setText((portA & 0x01)+"");
 	}
-	
-	
+
+
 	//takes all Pins of Port A and merges in a Number that will be returned
 	public int getPortA() {
 		int portA = 0;
@@ -750,10 +748,10 @@ public class GUI_Simulation {
 		portA += Integer.parseInt(portAPin2_txt.getText())*4;
 		portA += Integer.parseInt(portAPin1_txt.getText())*2;
 		portA += Integer.parseInt(portAPin0_txt.getText());
-		
+
 		return portA;
 	}
-	
+
 
 	//gets number from register and takes bits out of it and sets in Port B pins
 	public void setPortB(int portB) {
@@ -766,13 +764,13 @@ public class GUI_Simulation {
 		portBPin1_txt.setText(((portB & 0x02)/2)+"");
 		portBPin0_txt.setText((portB & 0x01)+"");
 	}
-	
-	
+
+
 
 	//takes all Pins of Port B and merges in a Number that will be returned
 	public int getPortB() {
 		int portB = 0;
-		
+
 		portB += Integer.parseInt(portBPin7_txt.getText())*128;
 		portB += Integer.parseInt(portBPin6_txt.getText())*64;
 		portB += Integer.parseInt(portBPin5_txt.getText())*32;
@@ -781,25 +779,25 @@ public class GUI_Simulation {
 		portB += Integer.parseInt(portBPin2_txt.getText())*4;
 		portB += Integer.parseInt(portBPin1_txt.getText())*2;
 		portB += Integer.parseInt(portBPin0_txt.getText());
-		
+
 		return portB;
 	}
-	
-	
-	
+
+
+
 	public void setTableRow(String text, int row) {
 		table.setValueAt(text, row, 2);
-		
+
 	}
-	
+
 	public void setSelection(int startRow, int endRow, int pc) {
-		
+		table.setCellSelectionEnabled(false);
 		int value = 0;
 		int index = startRow ;
 		String sub;// = table.getModel().getValueAt(startRow, 2).toString().substring(0, 4);
-		
+
 		while ((value != pc) && (index < endRow) ) {
-			
+
 			sub = table.getModel().getValueAt(index, 2).toString().substring(0, 4);
 			if (!sub.contains(" ")) {
 				value = Integer.parseInt(sub, 16);
@@ -807,11 +805,38 @@ public class GUI_Simulation {
 			else {
 				value = 0;
 			}
-			
+
 			index++;
-			
+
 		}
 		table.setCellSelectionEnabled(true);
 		table.changeSelection(index - 1, 2, false, false);
+
 	}
+
+	public void setBreakPoint(int row) {
+
+		String sub;
+		sub = table.getModel().getValueAt(row, 2).toString().substring(0, 4);
+		
+		if (!sub.contains(" ")) {
+			if (table.getModel().getValueAt(row, 1) ==null) {
+				table.getModel().setValueAt("x", row, 1);
+			}else {
+				table.getModel().setValueAt(null, row, 1);
+			}
+		}
+	}
+	
+	
+	public void isBreakPointSet(int row) {
+		System.out.println(row);
+		if (table.getModel().getValueAt(row, 1) ==null) {
+			stopPressed = false;
+		}else {
+			stopPressed = true;
+		}
+		System.out.println(stopPressed);
+	}
+	
 }
