@@ -1,6 +1,5 @@
 package UserInterface;
 
-import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -738,15 +737,15 @@ public class GUI_Simulation {
 
 
 	//gets number from register and takes bits out of it and sets in Port A pins
-	public void setPortA(int portA) {
-		portAPin7_txt.setText(((portA & 0x80)/128)+"");
-		portAPin6_txt.setText(((portA & 0x40)/64)+"");
-		portAPin5_txt.setText(((portA & 0x20)/32)+"");
-		portAPin4_txt.setText(((portA & 0x10)/16)+"");
-		portAPin3_txt.setText(((portA & 0x08)/8)+"");
-		portAPin2_txt.setText(((portA & 0x04)/4)+"");
-		portAPin1_txt.setText(((portA & 0x02)/2)+"");
-		portAPin0_txt.setText((portA & 0x01)+"");
+	public void setPortA(int[] portA) {
+		portAPin7_txt.setText(portA[7]+"");
+		portAPin6_txt.setText(portA[6]+"");
+		portAPin5_txt.setText(portA[5]+"");
+		portAPin4_txt.setText(portA[4]+"");
+		portAPin3_txt.setText(portA[3]+"");
+		portAPin2_txt.setText(portA[2]+"");
+		portAPin1_txt.setText(portA[1]+"");
+		portAPin0_txt.setText(portA[0]+"");
 	}
 
 
@@ -768,15 +767,15 @@ public class GUI_Simulation {
 
 
 	//gets number from register and takes bits out of it and sets in Port B pins
-	public void setPortB(int portB) {
-		portBPin7_txt.setText(((portB & 0x80)/128)+"");
-		portBPin6_txt.setText(((portB & 0x40)/64)+"");
-		portBPin5_txt.setText(((portB & 0x20)/32)+"");
-		portBPin4_txt.setText(((portB & 0x10)/16)+"");
-		portBPin3_txt.setText(((portB & 0x08)/8)+"");
-		portBPin2_txt.setText(((portB & 0x04)/4)+"");
-		portBPin1_txt.setText(((portB & 0x02)/2)+"");
-		portBPin0_txt.setText((portB & 0x01)+"");
+	public void setPortB(int[] portB) {
+		portBPin7_txt.setText(portB[7]+"");
+		portBPin6_txt.setText(portB[6]+"");
+		portBPin5_txt.setText(portB[5]+"");
+		portBPin4_txt.setText(portB[4]+"");
+		portBPin3_txt.setText(portB[3]+"");
+		portBPin2_txt.setText(portB[2]+"");
+		portBPin1_txt.setText(portB[1]+"");
+		portBPin0_txt.setText(portB[0]+"");
 	}
 
 

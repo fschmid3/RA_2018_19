@@ -17,8 +17,8 @@ public class Register {
 	private int dc = 0; 				//digit-carry-Flag
 	private int z = 0;					//zero-Flag
 	private int f = 0; 
-	private int portA = 0;					//Port A
-	private int portB = 0;					//Port B
+	private int[] portA = new int[8];					//Port A
+	private int[] portB = new int[8];					//Port B
 	private int pcLatch = 0;
 	private int indirect = 0;
 	private int timer0 = 0;
@@ -71,10 +71,10 @@ public class Register {
 					returnValue = fsr;
 					break;
 				case 5:
-					returnValue = portA;
+					returnValue = getPortAByValue();
 					break;
 				case 6:
-					returnValue = portB;
+					returnValue = getPortAByValue();
 					break;
 				case 8:
 					returnValue = eedata;
@@ -161,10 +161,10 @@ public class Register {
 					fsr = value;
 					break;
 				case 5:
-					portA = value;
+					setPortAByValue(value);
 					break;
 				case 6:
-					portB = value;
+					setPortBByValue(value);
 					break;
 				case 8:
 					eedata = value;
@@ -275,6 +275,72 @@ public class Register {
 		this.setIrp((status&0x80)/128);
 	}
 	
+	
+	public int[] getPortA() {
+		return portA;
+	}
+	
+
+	public int getPortAByValue() {
+		return portA[0]+portA[1]*2+portA[2]*4+portA[3]*8+portA[4]*16+portA[5]*32+portA[6]*64+portA[7]*128;
+	}
+	
+
+	public int getPortBByValue() {
+		return portB[0]+portB[1]*2+portB[2]*4+portB[3]*8+portB[4]*16+portB[5]*32+portB[6]*64+portB[7]*128;
+	}
+	
+	public int[] getPortB() {
+		return portB;
+	}
+	
+	
+	public void setPortA(int pin7, int pin6, int pin5, int pin4, int pin3, int pin2, int pin1, int pin0) {
+		this.portA[7] = pin0;
+		this.portA[6] = pin1;
+		this.portA[5] = pin2;
+		this.portA[4] = pin3;
+		this.portA[3] = pin4;
+		this.portA[2] = pin5;
+		this.portA[1] = pin6;
+		this.portA[0] = pin7;
+	}
+	
+	public void setPortAByValue(int number) {
+		portA[0] = (number&0x01);
+		portA[1] = (number&0x02)/2;
+		portA[2] = (number&0x04)/4;
+		portA[3] = (number&0x08)/8;
+		portA[4] = (number&0x10)/16;
+		portA[5] = (number&0x20)/32;
+		portA[6] = (number&0x40)/64;
+		portA[7] = (number&0x80)/128;
+	}
+	
+
+	public void setPortBByValue(int number) {
+		portB[0] = (number&0x01);
+		portB[1] = (number&0x02)/2;
+		portB[2] = (number&0x04)/4;
+		portB[3] = (number&0x08)/8;
+		portB[4] = (number&0x10)/16;
+		portB[5] = (number&0x20)/32;
+		portB[6] = (number&0x40)/64;
+		portB[7] = (number&0x80)/128;
+	}
+	
+
+	public void setPortB(int pin7, int pin6, int pin5, int pin4, int pin3, int pin2, int pin1, int pin0) {
+		this.portA[7] = pin0;
+		this.portA[6] = pin1;
+		this.portA[5] = pin2;
+		this.portA[4] = pin3;
+		this.portA[3] = pin4;
+		this.portA[2] = pin5;
+		this.portA[1] = pin6;
+		this.portA[0] = pin7;
+	}
+	
 	public int getInstruction() {
 		return instruction;
 	}
@@ -292,18 +358,6 @@ public class Register {
 	}
 	public void setGernalPurpReg(int gernalPurpReg) {
 		this.gernalPurpReg = gernalPurpReg;
-	}
-	public int getPortA() {
-		return portA;
-	}
-	public void setPortA(int portA) {
-		this.portA = portA;
-	}
-	public int getPortB() {
-		return portB;
-	}
-	public void setPortB(int portB) {
-		this.portB = portB;
 	}
 	public int getPcl() {
 		return pcl;

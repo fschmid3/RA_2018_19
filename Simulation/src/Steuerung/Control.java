@@ -54,8 +54,8 @@ public class Control{
 
 
 	private void updateGUI() {
-		register.setPortA(gui.getPortA());
-		register.setPortB(gui.getPortB());
+		register.setPortAByValue(gui.getPortA());
+		register.setPortBByValue(gui.getPortB());
 		gui.isBreakPointSet(myParser.getStartRow() + register.getPc());
 		gui.setSelection(myParser.getStartRow(),myParser.getEndRow(), register.getPc());
 		gui.setRuntime(register.getRuntime());
@@ -75,6 +75,8 @@ public class Control{
 		gui.setOption(register.getOption());
 		gui.setINTCON(register.getIntcon());
 		gui.setTimer0(register.getTimer0());
+		gui.setPortA(register.getPortA());
+		gui.setPortB(register.getPortB());
 
 	}
 
