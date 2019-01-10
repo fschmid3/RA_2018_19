@@ -790,7 +790,7 @@ public class GUI_Simulation {
 	public static void clearTable(final JTable table) {
 		   for (int i = 0; i < table.getRowCount(); i++) {
 		      for(int j = 0; j < table.getColumnCount(); j++) {
-		          table.setValueAt("", i, j);
+		          table.setValueAt(null, i, j);
 		      }
 		   }
 	}

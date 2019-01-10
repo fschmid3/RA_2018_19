@@ -120,8 +120,9 @@ public class Operations {
 	//Subtracts W from F
 	public void subWF(int code) {
 		int oldW = register.getW();
-		int value =  register.getRamContent(code&0x7F)+(((~register.getW())&255)+1);
-		setDCMinus(register.getRamContent(code&0x7F), oldW);
+		int oldF = register.getRamContent(code&0x7F);
+		int value =  oldF+(((~oldW)+1)&255);
+		setDCMinus(oldF, oldW);
 		setZ(value);
 		setC(value);
 		System.out.println("wert:" + register.getRamContent(code&0x7F) + ",");
@@ -407,11 +408,9 @@ public class Operations {
 	
 
 	private void setDCMinus(int oldF, int oldW) {
-		int maskedW = oldW & 0xFF;
-		int maskedF = oldF & 0xFF;
-		//int compResult = maskedValue+(((~maskedF&255)+1));
-		int compResult = maskedF-maskedW;
-		if (compResult < 0) {
+		int maskedW = oldW & 0x0F;
+		int maskedF = oldF & 0x0F;
+		if (maskedF+(((((~maskedW)))+1)&15) > 15) {
 			register.setDc(1);
 		}else {
 			register.setDc(0);
