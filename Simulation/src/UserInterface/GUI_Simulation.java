@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import Steuerung.Control;
+
 import javax.swing.JScrollPane;
 import java.awt.SystemColor;
 import javax.swing.JFileChooser;
@@ -52,7 +53,7 @@ public class GUI_Simulation {
 	private JTextField portAPin7_txt;
 	private JTable table;
 	private Control strg;
-	private JTextField timer_txt;
+	private JTextField runtime_txt;
 	private JTextField intcon_txt;
 	private JTextField optionReg_txt;
 	private JTextField txtTO;
@@ -62,6 +63,7 @@ public class GUI_Simulation {
 
 
 	private boolean stopPressed = false; 
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -112,11 +114,11 @@ public class GUI_Simulation {
 			}
 		});
 
-		timer_txt = new JTextField();
-		timer_txt.setEditable(false);
-		timer_txt.setColumns(10);
-		timer_txt.setBounds(96, 569, 63, 22);
-		frame.getContentPane().add(timer_txt);
+		runtime_txt = new JTextField();
+		runtime_txt.setEditable(false);
+		runtime_txt.setColumns(10);
+		runtime_txt.setBounds(300, 569, 108, 22);
+		frame.getContentPane().add(runtime_txt);
 
 		JLabel timer_lbl = new JLabel("Timer0");
 		timer_lbl.setBounds(34, 572, 56, 16);
@@ -659,6 +661,16 @@ public class GUI_Simulation {
 		});
 		btn_stepByStep.setBounds(776, 638, 108, 35);
 		frame.getContentPane().add(btn_stepByStep);
+		
+		JLabel lblRuntime = new JLabel("Runtime");
+		lblRuntime.setBounds(232, 572, 56, 16);
+		frame.getContentPane().add(lblRuntime);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setColumns(10);
+		textField.setBounds(96, 569, 63, 22);
+		frame.getContentPane().add(textField);
 
 	}
 
@@ -719,7 +731,7 @@ public class GUI_Simulation {
 	}
 
 	public void setTimer0(int timer0) {
-		timer_txt.setText(timer0+"");
+		runtime_txt.setText(timer0+"");
 	}
 
 
@@ -849,4 +861,7 @@ public class GUI_Simulation {
 		System.out.println(stopPressed);
 	}
 	
+	public void setRuntime(long runtime) {
+		runtime_txt.setText(""+ runtime);
+	}
 }

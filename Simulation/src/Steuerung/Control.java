@@ -58,6 +58,7 @@ public class Control{
 		register.setPortB(gui.getPortB());
 		gui.isBreakPointSet(myParser.getStartRow() + register.getPc());
 		gui.setSelection(myParser.getStartRow(),myParser.getEndRow(), register.getPc());
+		gui.setRuntime(register.getRuntime());
 		gui.setC(register.getC());
 		gui.setDC(register.getDc());
 		gui.setPC(register.getPc());
