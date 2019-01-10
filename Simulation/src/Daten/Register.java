@@ -383,6 +383,8 @@ public class Register {
 	public void setVorteiler(int vorteiler) {
 		this.vorteiler = vorteiler;
 	}
+	
+	
 	public int getRuntime() {
 		return runtime;
 	}

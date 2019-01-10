@@ -53,7 +53,6 @@ public class GUI_Simulation {
 	private JTextField portAPin7_txt;
 	private JTable table;
 	private Control strg;
-	private JTextField runtime_txt;
 	private JTextField intcon_txt;
 	private JTextField optionReg_txt;
 	private JTextField txtTO;
@@ -64,6 +63,7 @@ public class GUI_Simulation {
 
 	private boolean stopPressed = false; 
 	private JTextField textField;
+	private JTextField txtRuntime;
 
 	/**
 	 * Launch the application.
@@ -113,12 +113,6 @@ public class GUI_Simulation {
 				switchBit(portBPin7_txt);
 			}
 		});
-
-		runtime_txt = new JTextField();
-		runtime_txt.setEditable(false);
-		runtime_txt.setColumns(10);
-		runtime_txt.setBounds(300, 569, 108, 22);
-		frame.getContentPane().add(runtime_txt);
 
 		JLabel timer_lbl = new JLabel("Timer0");
 		timer_lbl.setBounds(34, 572, 56, 16);
@@ -671,6 +665,12 @@ public class GUI_Simulation {
 		textField.setColumns(10);
 		textField.setBounds(96, 569, 63, 22);
 		frame.getContentPane().add(textField);
+		
+		txtRuntime = new JTextField();
+		txtRuntime.setEditable(false);
+		txtRuntime.setColumns(10);
+		txtRuntime.setBounds(298, 569, 108, 22);
+		frame.getContentPane().add(txtRuntime);
 
 	}
 
@@ -731,7 +731,7 @@ public class GUI_Simulation {
 	}
 
 	public void setTimer0(int timer0) {
-		runtime_txt.setText(timer0+"");
+		textField.setText(timer0+"");
 	}
 
 
@@ -858,10 +858,10 @@ public class GUI_Simulation {
 		}else {
 			stopPressed = true;
 		}
-		System.out.println(stopPressed);
 	}
 	
-	public void setRuntime(long runtime) {
-		runtime_txt.setText(""+ runtime);
+	public void setRuntime(int runtime) {
+		txtRuntime.setText(""+runtime);
+		System.out.println("Runtime: "+runtime);
 	}
 }
