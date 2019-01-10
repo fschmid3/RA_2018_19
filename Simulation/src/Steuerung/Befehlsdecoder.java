@@ -36,6 +36,7 @@ public class Befehlsdecoder {
 		}
 		if(pCode!=0) {
 			myOperations.incrementTimer0();
+			myOperations.incrementRuntime();
 		}
 	}
 	

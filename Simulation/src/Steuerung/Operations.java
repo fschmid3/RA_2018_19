@@ -86,6 +86,7 @@ public class Operations {
 		int adress = code & 0x07FF;
 		register.setPc(adress-1);
 		incrementTimer0();
+		incrementRuntime();
 		System.out.println("GOTO: "+adress);
 	}
 	
@@ -345,6 +346,13 @@ public class Operations {
 		}
 		
 	}
+	
+	
+	// increments Runtime 
+	public void incrementRuntime() {
+		register.setRuntime(register.getRuntime()+1);
+	}
+
 	
 	
 	

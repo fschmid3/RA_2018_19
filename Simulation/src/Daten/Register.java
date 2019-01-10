@@ -31,6 +31,7 @@ public class Register {
 	private int eeadr = 0;
 	private int eecon1 = 0;
 	private int eecon2 = 0;
+	private int runtime = 0;
 	
 	
 	private int[] ram = new int[195];
@@ -381,6 +382,12 @@ public class Register {
 	}
 	public void setVorteiler(int vorteiler) {
 		this.vorteiler = vorteiler;
+	}
+	public int getRuntime() {
+		return runtime;
+	}
+	public void setRuntime(int runtime) {
+		this.runtime = runtime;
 	}
 	
 	

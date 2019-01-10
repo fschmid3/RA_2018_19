@@ -17,7 +17,7 @@ public class Parser {
 
 		BufferedReader bReader = new BufferedReader(fReader);
 
-		String [] fileContent = new String[256];
+		String [] fileContent = new String[350];
 		String lineBuffer = " ";
 
 		lineBuffer = bReader.readLine();
