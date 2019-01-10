@@ -610,6 +610,8 @@ public class GUI_Simulation {
 				if (result == JFileChooser.APPROVE_OPTION) {
 					File selectedFile = fileChooser.getSelectedFile();
 					try {
+						clearTable(table);
+						strg = new Control(GUI_Simulation.this);
 						strg.fileOpened(selectedFile.getAbsolutePath());
 						// delete content of old array in parser
 					} catch (IOException e) {
@@ -784,6 +786,14 @@ public class GUI_Simulation {
 	}
 
 
+	
+	public static void clearTable(final JTable table) {
+		   for (int i = 0; i < table.getRowCount(); i++) {
+		      for(int j = 0; j < table.getColumnCount(); j++) {
+		          table.setValueAt("", i, j);
+		      }
+		   }
+	}
 
 	public void setTableRow(String text, int row) {
 		table.setValueAt(text, row, 2);

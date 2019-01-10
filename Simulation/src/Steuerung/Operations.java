@@ -54,7 +54,7 @@ public class Operations {
 		int oldW = register.getW();
 		int value = code & 0x00FF;
 		int result = (value+register.getW());
-		//register.setW(result);
+		register.setW(result);
 		setC(result);
 		setZ(result);
 		setDC(oldW, value);
@@ -121,9 +121,9 @@ public class Operations {
 	public void subWF(int code) {
 		int oldW = register.getW();
 		int value =  register.getRamContent(code&0x7F)+(((~register.getW())&255)+1);
+		setDCMinus(register.getRamContent(code&0x7F), oldW);
 		setZ(value);
 		setC(value);
-		setDC(oldW, register.getRamContent(code&0x7F));
 		System.out.println("wert:" + register.getRamContent(code&0x7F) + ",");
 		saveInFOrWBasedOnD(code, value);
 	}
@@ -360,8 +360,6 @@ public class Operations {
 	
 	
 	
-	
-	
 	//decides depending on d, whether to save in W or F
 	private void saveInFOrWBasedOnD(int code, int value) {
 		int masked = code & 0x0080;
@@ -406,5 +404,18 @@ public class Operations {
 		}
 	}
 	
+	
+
+	private void setDCMinus(int oldF, int oldW) {
+		int maskedW = oldW & 0xFF;
+		int maskedF = oldF & 0xFF;
+		//int compResult = maskedValue+(((~maskedF&255)+1));
+		int compResult = maskedF-maskedW;
+		if (compResult < 0) {
+			register.setDc(1);
+		}else {
+			register.setDc(0);
+		}
+	}
 	
 }
