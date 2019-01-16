@@ -26,6 +26,7 @@ public class Control{
 		setFileInTable();
 		gui.setPortA(register.getPortA());
 		gui.setPortB(register.getPortB());
+		ai = myParser.parseCode(fileContent);
 	}
 
 
@@ -33,7 +34,6 @@ public class Control{
 	//decodes ONE line -> next one, of assembler code
 	public boolean decodeNextLine() throws IOException {
 		if(!(myParser == null)) {
-			ai = myParser.parseCode(fileContent);
 			if((register.getPc()<ai.length) && ( register.getPc() < myParser.getEndRow())) {
 				System.out.println("hier "+ register.getPc() + " & "+myParser.getStartRow());
 				
