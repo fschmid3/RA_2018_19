@@ -38,11 +38,21 @@ public class Parser {
 		int [] aiBuffer = new int [256];
 		String codeBuffer = null;
 		int indexContent;
+		int length = 0;
+		boolean isFilled=true;
+		for (int i = 0; i<fileContent.length && isFilled==true; i++) {
+			if(fileContent[i]==null) {
+				isFilled=false;
+				length = i-1;
+			}
+		}
 		
 		for(indexContent = 0; (!fileContent[indexContent].substring(0, 4).contains("0000")); indexContent++) {}
 		startRow=indexContent;
-		for(int i= 0;!fileContent[indexContent].contains("ende") && i < aiBuffer.length; indexContent++,i++) {
-			
+		//for(int i= 0;!fileContent[indexContent].contains("ende") && i < aiBuffer.length; indexContent++,i++) {
+		//for(int i= 0;(indexContent<fileContent.length) && i < aiBuffer.length; indexContent++,i++) {
+		for(int i= 0; indexContent < length && i < aiBuffer.length; indexContent++,i++) {	
+		//System.out.println(fileContent.length + " substring "+ fileContent[indexContent].substring(20, 25));
 			codeBuffer = fileContent[indexContent].substring(5, 9);
 			//System.out.println("_"+codeBuffer+"_"+i);
 			if(!codeBuffer.contains("    ")) {

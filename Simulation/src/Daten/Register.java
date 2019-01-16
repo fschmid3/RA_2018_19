@@ -352,6 +352,7 @@ public class Register {
 	}
 	public void setPc(int pc) {
 		this.pc = pc;
+		pcl = pc&0xFF;
 	}
 	public int getGernalPurpReg() {
 		return gernalPurpReg;
