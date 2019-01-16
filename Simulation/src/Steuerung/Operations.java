@@ -232,7 +232,7 @@ public class Operations {
 		if ((f&0x0080)==0x0080) {
 			register.setC(1);
 		}
-		saveInFOrWBasedOnD(code, value);
+		saveInFOrWBasedOnD(code, value); 
 	}
 	
 	//swaps high and low nibble of f

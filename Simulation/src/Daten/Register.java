@@ -74,7 +74,7 @@ public class Register {
 					returnValue = getPortAByValue();
 					break;
 				case 6:
-					returnValue = getPortAByValue();
+					returnValue = getPortBByValue();
 					break;
 				case 8:
 					returnValue = eedata;
@@ -120,7 +120,7 @@ public class Register {
 					returnValue = eecon1;
 					break;
 				case 9:
-					returnValue = eecon1;
+					returnValue = eecon2;
 					break;
 				case 10:
 					returnValue = pcLatch;
@@ -331,14 +331,14 @@ public class Register {
 	
 
 	public void setPortB(int pin7, int pin6, int pin5, int pin4, int pin3, int pin2, int pin1, int pin0) {
-		this.portA[7] = pin0;
-		this.portA[6] = pin1;
-		this.portA[5] = pin2;
-		this.portA[4] = pin3;
-		this.portA[3] = pin4;
-		this.portA[2] = pin5;
-		this.portA[1] = pin6;
-		this.portA[0] = pin7;
+		this.portB[7] = pin0;
+		this.portB[6] = pin1;
+		this.portB[5] = pin2;
+		this.portB[4] = pin3;
+		this.portB[3] = pin4;
+		this.portB[2] = pin5;
+		this.portB[1] = pin6;
+		this.portB[0] = pin7;
 	}
 	
 	public int getInstruction() {
