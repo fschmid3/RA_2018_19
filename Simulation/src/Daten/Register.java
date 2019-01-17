@@ -94,8 +94,8 @@ public class Register {
 			}else {
 					switch(adress) {
 				case 0:
-					System.out.println("in reg indirect: "+indirect);
-					System.out.println("Inhalt indirekter Adresse: "+ram[indirect]);
+					//System.out.println("in reg indirect: "+indirect);
+					//System.out.println("Inhalt indirekter Adresse: "+ram[indirect]);
 					returnValue = ram[indirect];
 					break;
 				case 1:

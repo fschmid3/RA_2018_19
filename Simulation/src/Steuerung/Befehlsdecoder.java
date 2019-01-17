@@ -229,6 +229,7 @@ public class Befehlsdecoder {
 	}
 	
 	
+	
 	// decides, which Bit-Oriented Operation is to be called
 	private void maskTwoBit() {
 		int maskedCode = code & 0x0C00;

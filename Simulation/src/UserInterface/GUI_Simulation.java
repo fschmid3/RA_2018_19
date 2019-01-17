@@ -609,6 +609,7 @@ public class GUI_Simulation {
 				}
 			}
 		});
+		
 
 		JFileChooser fileChooser = new JFileChooser();
 
