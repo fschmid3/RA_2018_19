@@ -110,6 +110,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portBPin7_txt);
+				strg.mouseClickedPortB();
 			}
 		});
 
@@ -264,6 +265,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portBPin6_txt);
+				strg.mouseClickedPortB();
 			}
 		});
 		portBPin6_txt.setColumns(10);
@@ -276,6 +278,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portBPin5_txt);
+				strg.mouseClickedPortB();
 			}
 		});
 		portBPin5_txt.setColumns(10);
@@ -288,6 +291,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				switchBit(portBPin4_txt);
+				strg.mouseClickedPortB();
 			}
 		});
 		portBPin4_txt.setColumns(10);
@@ -300,6 +304,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portBPin3_txt);
+				strg.mouseClickedPortB();
 			}
 		});
 		portBPin3_txt.setColumns(10);
@@ -312,6 +317,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portBPin2_txt);
+				strg.mouseClickedPortB();
 			}
 		});
 		portBPin2_txt.setColumns(10);
@@ -324,6 +330,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portBPin1_txt);
+				strg.mouseClickedPortB();
 			}
 		});
 		portBPin1_txt.setColumns(10);
@@ -364,6 +371,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portBPin0_txt);
+				strg.mouseClickedPortB();
 			}
 		});
 		portBPin0_txt.setColumns(10);
@@ -416,6 +424,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portAPin0_txt);
+				strg.mouseClickedPortA();
 			}
 		});
 		portAPin0_txt.setColumns(10);
@@ -428,6 +437,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portAPin1_txt);
+				strg.mouseClickedPortA();
 			}
 		});
 		portAPin1_txt.setColumns(10);
@@ -440,6 +450,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portAPin2_txt);
+				strg.mouseClickedPortA();
 			}
 		});
 		portAPin2_txt.setColumns(10);
@@ -452,6 +463,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portAPin3_txt);
+				strg.mouseClickedPortA();
 			}
 		});
 		portAPin3_txt.setColumns(10);
@@ -464,6 +476,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portAPin4_txt);
+				strg.mouseClickedPortA();
 			}
 		});
 		portAPin4_txt.setColumns(10);
@@ -476,6 +489,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portAPin5_txt);
+				strg.mouseClickedPortA();
 			}
 		});
 		portAPin5_txt.setColumns(10);
@@ -488,6 +502,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portAPin6_txt);
+				strg.mouseClickedPortA();
 			}
 		});
 		portAPin6_txt.setColumns(10);
@@ -500,6 +515,7 @@ public class GUI_Simulation {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				switchBit(portAPin7_txt);
+				strg.mouseClickedPortA();
 			}
 		});
 		portAPin7_txt.setColumns(10);

@@ -327,6 +327,7 @@ public class Register {
 		portB[5] = (number&0x20)/32;
 		portB[6] = (number&0x40)/64;
 		portB[7] = (number&0x80)/128;
+		System.out.println("value portB "+number);
 	}
 	
 

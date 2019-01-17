@@ -378,6 +378,7 @@ public class Operations {
 			register.setW(value);
 		}else {
 			register.setRamContent(code&0x7F, value);
+			System.out.println("value: "+value+" code: "+(code&0x7F));
 		}
 	}
 	
