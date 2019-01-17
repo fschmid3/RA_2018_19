@@ -555,19 +555,14 @@ public class GUI_Simulation {
 		btnStop.setBounds(637, 680, 70, 25);
 		frame.getContentPane().add(btnStop);
 
-		JButton btnNext = new JButton("Next");
-		btnNext.addActionListener(new ActionListener() {
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					strg.decodeNextLine();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				strg.resetAll();
 			}
 		});
-		btnNext.setBounds(796, 680, 70, 25);
-		frame.getContentPane().add(btnNext);
+		btnReset.setBounds(796, 680, 70, 25);
+		frame.getContentPane().add(btnReset);
 
 		table = new JTable();
 

@@ -120,4 +120,33 @@ public class Control{
 	public void mouseClickedPortA() {
 		register.setPortAByValue(gui.getPortA());
 	}
+	
+	public void resetAll() {
+		
+		register = new Register();
+		myDec = new Befehlsdecoder(register);
+		gui.setPortA(register.getPortA());
+		gui.setPortB(register.getPortB());
+		gui.isBreakPointSet(myParser.getStartRow() + register.getPc());
+		gui.setSelection(myParser.getStartRow(),myParser.getEndRow(), register.getPc());
+		gui.setRuntime(register.getRuntime());
+		gui.setC(register.getC());
+		gui.setDC(register.getDc());
+		gui.setPC(register.getPc());
+		gui.setW(register.getW());
+		gui.setZ(register.getZ());
+		gui.setFSR(register.getFsr());
+		gui.setPCL(register.getPcl());
+		gui.setPCLATCH(register.getPcLatch());
+		gui.setPD(register.getPdBar());		
+		gui.setTO(register.getToBar());		
+		gui.setRP0(register.getRp0());		
+		gui.setRP1(register.getRp1());		
+		gui.setIRP(register.getIrp());		
+		gui.setOption(register.getOption());
+		gui.setINTCON(register.getIntcon());
+		gui.setTimer0(register.getTimer0());
+		gui.setPortA(register.getPortA());
+		gui.setPortB(register.getPortB());
+	}
 }
