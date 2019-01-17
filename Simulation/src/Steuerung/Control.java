@@ -54,8 +54,8 @@ public class Control{
 
 
 	private void updateGUI() {
-		register.setPortAByValue(gui.getPortA());
-		register.setPortBByValue(gui.getPortB());
+		gui.setPortA(register.getPortA());
+		gui.setPortB(register.getPortB());
 		gui.isBreakPointSet(myParser.getStartRow() + register.getPc());
 		gui.setSelection(myParser.getStartRow(),myParser.getEndRow(), register.getPc());
 		gui.setRuntime(register.getRuntime());
@@ -111,5 +111,13 @@ public class Control{
 			//System.out.println(myStr[i]);
 		}
 
+	}
+	
+	public void mouseClickedPortB() {
+		register.setPortBByValue(gui.getPortB());
+	}
+	
+	public void mouseClickedPortA() {
+		register.setPortAByValue(gui.getPortA());
 	}
 }
